@@ -17,10 +17,20 @@
       "types": "./dist/contracts/index.d.ts",
       "import": "./dist/contracts/index.js"
     },
+    "./catalog": {
+      "types": "./dist/catalog/browser.d.ts",
+      "import": "./dist/catalog/browser.js",
+      "browser": "./dist/catalog/browser.js"
+    },
+    "./ui": {
+      "types": "./src/ui/index.ts",
+      "import": "./src/ui/index.ts"
+    },
     "./schemas/*": "./schemas/*"
   },
   "files": [
     "dist",
+    "src",
     "schemas",
     "README.md",
     "LICENSE"
