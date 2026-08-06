@@ -14,11 +14,13 @@ export function VirtualizedIconGrid({
   assignments,
   onChoose,
   onRemove,
+  referencePreview,
 }: {
   icons: readonly IconDefinition[];
   assignments: ReadonlyMap<string, { source: string | undefined }>;
   onChoose: (id: string, file: File) => Promise<{ ok: boolean; errors: readonly string[] }>;
   onRemove: (id: string) => void;
+  referencePreview?: ((iconId: string) => string | undefined) | undefined;
 }) {
   const [scrollTop, setScrollTop] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(600);
@@ -66,10 +68,10 @@ export function VirtualizedIconGrid({
               <IconAssignmentCard
                 icon={icon}
                 assignment={assignments.get(icon.id)}
+                referencePreview={referencePreview?.(icon.id)}
                 onChoose={(file) => onChoose(icon.id, file)}
                 onRemove={() => onRemove(icon.id)}
-              />
-            </div>
+              />            </div>
           );
         })}
       </div>

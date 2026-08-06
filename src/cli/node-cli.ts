@@ -2,7 +2,6 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { buildIconGroup } from "../build/orchestrate.js";
-import { createDeterministicZip } from "../build/zip.js";
 
 /**
  * Node/Linux CLI: accepts a JSON build request with explicit input/output
@@ -75,15 +74,20 @@ export async function runNodeCli(argv: string[]): Promise<number> {
 
   const catalog: unknown = JSON.parse(readFileSync(resolve(request.catalogPath), "utf8"));
 
-  const sources: Record<string, string> = {};
-  for (const id of request.selectedIds) {
+  const sourceMap = new Map<string, string>();
+  for (const idRaw of request.selectedIds) {
+    const id = String(idRaw);
     const svgPath = join(resolve(request.svgDir), `${id}.svg`);
+    let content: string;
     try {
-      sources[id] = readFileSync(svgPath, "utf8");
+      content = readFileSync(svgPath, "utf8");
     } catch {
       // missing icon: leave unassigned (partial group allowed)
+      continue;
     }
+    sourceMap.set(id, content);
   }
+  const sources: Record<string, string> = Object.fromEntries(sourceMap);
 
   const result = await buildIconGroup(
     {

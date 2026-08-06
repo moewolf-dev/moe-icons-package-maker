@@ -9,16 +9,17 @@ import type { IconDefinition } from "../../contracts/types";
 export function IconAssignmentCard({
   icon,
   assignment,
+  referencePreview,
   onChoose,
   onRemove,
 }: {
   icon: IconDefinition;
   assignment: { source: string | undefined } | undefined;
+  referencePreview?: string | undefined;
   onChoose: (file: File) => Promise<{ ok: boolean; errors: readonly string[] }>;
   onRemove: () => void;
 }) {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [pending, setPending] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);  const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | undefined>(undefined);
   const [dropActive, setDropActive] = useState(false);
 
@@ -53,6 +54,15 @@ export function IconAssignmentCard({
     >
       <span className="icon-card-name">{icon.id}</span>
       <span className="icon-card-subgroup">{icon.subgroupId}</span>
+      {referencePreview && (
+        <span
+          className="icon-card-reference"
+          data-testid={`reference-${icon.id}`}
+          aria-label={`Reference preview for ${icon.id}`}
+        >
+          <img src={referencePreview} alt="" />
+        </span>
+      )}
       {filled ? (
         <span className="icon-card-status" data-testid={`status-${icon.id}`}>
           {source}

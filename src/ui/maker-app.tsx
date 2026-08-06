@@ -26,7 +26,7 @@ export function MakerApp({
   const filtered = useMemo(() => {
     const results = session.setQuery(query);
     return subgroup ? results.filter((icon) => icon.subgroupId === subgroup) : results;
-  }, [query, subgroup, session, session.setQuery]);
+  }, [query, subgroup, session]);
 
   const assignmentMap = useMemo(() => {
     const map = new Map<string, { source: string | undefined }>();
@@ -82,17 +82,21 @@ export function MakerApp({
           <VirtualizedIconGrid
             icons={filtered}
             assignments={assignmentMap}
+            referencePreview={referencePreview}
             onChoose={async (id, file) => {
               const result = await session.assignFile(id, file);
               return { ok: result.ok, errors: result.errors };
             }}
-            onRemove={session.removeAssignment}
+            onRemove={(id) => session.removeAssignment(id)}
           />
         </>
       )}
 
       {activeTab === "metadata" && (
-        <GroupMetadataForm metadata={session.metadata} onChange={session.setMetadata} />
+        <GroupMetadataForm
+          metadata={session.metadata}
+          onChange={(patch) => session.setMetadata(patch)}
+        />
       )}
 
       {activeTab === "review" && (
@@ -101,7 +105,7 @@ export function MakerApp({
           issues={reviewIssues}
           buildStatus={session.buildStatus}
           buildError={session.buildError}
-          onBuild={session.build}
+          onBuild={() => session.build()}
         />
       )}
     </div>

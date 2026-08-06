@@ -48,4 +48,20 @@ describe("accessibility and responsiveness", () => {
     expect(mountedCards).toBeLessThan(50);
     expect(mountedCards).toBeGreaterThan(0);
   });
+
+  it("renders the reference preview icon when a resolver is provided", () => {
+    render(
+      <VirtualizedIconGrid
+        icons={catalog(3).icons}
+        assignments={new Map()}
+        referencePreview={(id) => `https://ref.example.com/${id}.svg`}
+        onChoose={async () => ({ ok: true, errors: [] })}
+        onRemove={() => undefined}
+      />,
+    );
+    const firstRef = document.querySelector("[data-testid^='reference-icon-000']") as HTMLElement;
+    expect(firstRef).toBeTruthy();
+    const img = firstRef?.querySelector("img");
+    expect(img?.getAttribute("src")).toContain("icon-000.svg");
+  });
 });

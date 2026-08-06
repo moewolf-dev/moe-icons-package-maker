@@ -164,7 +164,6 @@ export async function uploadGroup(
   }
 
   const groupKey = entries[0]?.key ?? "";
-  const groupId = groupKey.split("/")[1] ?? "";
   const publicUrl = config.publicBaseUrl
     ? `${config.publicBaseUrl.replace(/\/$/, "")}/${groupKey}`
     : "";
