@@ -1,7 +1,6 @@
 import { mkdirSync, writeFileSync, renameSync, existsSync } from "node:fs";
-import { join, resolve, relative } from "node:path";
+import { join, resolve } from "node:path";
 import { realpathSync } from "node:fs";
-import type { BuildWriter } from "../../build/materialize";
 
 /**
  * Node adapters: filesystem output only. Resolve real paths under an explicit

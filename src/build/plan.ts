@@ -1,6 +1,6 @@
 import type { MappingState } from "../mapping/mapping";
 import type { ValidationIssue } from "../svg/parse";
-import type { IconGroupManifest, ValidationSummary } from "../contracts/manifest";
+import type { ValidationSummary } from "../contracts/manifest";
 
 /**
  * Deterministic normalized output planning and materialization.
