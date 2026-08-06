@@ -148,7 +148,6 @@ export function validateSvgStructure(
   }
 
   let drawableCount = 0;
-  let rasterCount = 0;
   const seenIds = new Set<string>();
 
   const walk = (node: SvgElement, path: string) => {
@@ -163,7 +162,6 @@ export function validateSvgStructure(
     }
     if (DRAWABLE.has(node.name)) drawableCount += 1;
     if (node.name === "image" || node.name === "foreignObject") {
-      rasterCount += 1;
       if (policy.rejectRaster) {
         issues.push({
           code: "RASTER_CONTENT",
