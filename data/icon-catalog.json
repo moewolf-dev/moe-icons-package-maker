@@ -1,0 +1,4437 @@
+{
+  "schemaVersion": 1,
+  "icons": [
+    {
+      "id": "archive",
+      "subgroupId": "archive",
+      "label": "Archive",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "archive-box",
+      "subgroupId": "archive",
+      "label": "Archive Box",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "archive-box-close-open",
+      "subgroupId": "archive",
+      "label": "Archive Box Close Open",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "archive-box-collection",
+      "subgroupId": "archive",
+      "label": "Archive Box Collection",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "archive-box-collection-large",
+      "subgroupId": "archive",
+      "label": "Archive Box Collection Large",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "archive-box-open",
+      "subgroupId": "archive",
+      "label": "Archive Box Open",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "archive-box-open-collection",
+      "subgroupId": "archive",
+      "label": "Archive Box Open Collection",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "archive-shopping",
+      "subgroupId": "archive",
+      "label": "Archive Shopping",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "archive-shopping-saled",
+      "subgroupId": "archive",
+      "label": "Archive Shopping Saled",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "archive-style1",
+      "subgroupId": "archive",
+      "label": "Archive Style1",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "archive-style2",
+      "subgroupId": "archive",
+      "label": "Archive Style2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "archive-style3",
+      "subgroupId": "archive",
+      "label": "Archive Style3",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-bold-down",
+      "subgroupId": "arrow",
+      "label": "Arrow Bold Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-bold-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Bold Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-bold-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Bold Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-bold-up",
+      "subgroupId": "arrow",
+      "label": "Arrow Bold Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-bottom-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Bottom Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-bottom-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Bottom Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-chevron-bottom-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Chevron Bottom Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-chevron-bottom-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Chevron Bottom Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-chevron-collapse-down",
+      "subgroupId": "arrow",
+      "label": "Arrow Chevron Collapse Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-chevron-collapse-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Chevron Collapse Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-chevron-collapse-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Chevron Collapse Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-chevron-collapse-up",
+      "subgroupId": "arrow",
+      "label": "Arrow Chevron Collapse Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-chevron-down",
+      "subgroupId": "arrow",
+      "label": "Arrow Chevron Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-chevron-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Chevron Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-chevron-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Chevron Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-chevron-top-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Chevron Top Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-chevron-top-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Chevron Top Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-chevron-up",
+      "subgroupId": "arrow",
+      "label": "Arrow Chevron Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-collapse-down",
+      "subgroupId": "arrow",
+      "label": "Arrow Collapse Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-collapse-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Collapse Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-collapse-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Collapse Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-collapse-up",
+      "subgroupId": "arrow",
+      "label": "Arrow Collapse Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-decrease",
+      "subgroupId": "arrow",
+      "label": "Arrow Decrease",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-double-bottom-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Double Bottom Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-double-bottom-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Double Bottom Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-double-collapse-down",
+      "subgroupId": "arrow",
+      "label": "Arrow Double Collapse Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-double-collapse-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Double Collapse Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-double-collapse-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Double Collapse Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-double-collapse-up",
+      "subgroupId": "arrow",
+      "label": "Arrow Double Collapse Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-double-down",
+      "subgroupId": "arrow",
+      "label": "Arrow Double Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-double-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Double Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-double-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Double Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-double-top-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Double Top Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-double-top-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Double Top Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-double-up",
+      "subgroupId": "arrow",
+      "label": "Arrow Double Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-down",
+      "subgroupId": "arrow",
+      "label": "Arrow Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-drop-down",
+      "subgroupId": "arrow",
+      "label": "Arrow Drop Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-drop-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Drop Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-drop-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Drop Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-drop-up",
+      "subgroupId": "arrow",
+      "label": "Arrow Drop Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-escalate",
+      "subgroupId": "arrow",
+      "label": "Arrow Escalate",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-move",
+      "subgroupId": "arrow",
+      "label": "Arrow Move",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-play-down",
+      "subgroupId": "arrow",
+      "label": "Arrow Play Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-play-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Play Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-play-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Play Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-play-up",
+      "subgroupId": "arrow",
+      "label": "Arrow Play Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-top-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Top Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-top-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Top Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-turn-bottom-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Turn Bottom Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-turn-bottom-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Turn Bottom Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-turn-left-bottom",
+      "subgroupId": "arrow",
+      "label": "Arrow Turn Left Bottom",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-turn-left-top",
+      "subgroupId": "arrow",
+      "label": "Arrow Turn Left Top",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-turn-right-bottom",
+      "subgroupId": "arrow",
+      "label": "Arrow Turn Right Bottom",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-turn-right-top",
+      "subgroupId": "arrow",
+      "label": "Arrow Turn Right Top",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-turn-up-left",
+      "subgroupId": "arrow",
+      "label": "Arrow Turn Up Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-turn-up-right",
+      "subgroupId": "arrow",
+      "label": "Arrow Turn Up Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-u-down-right",
+      "subgroupId": "arrow",
+      "label": "Arrow U Down Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-u-left-top",
+      "subgroupId": "arrow",
+      "label": "Arrow U Left Top",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-u-right-top",
+      "subgroupId": "arrow",
+      "label": "Arrow U Right Top",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-u-up-left",
+      "subgroupId": "arrow",
+      "label": "Arrow U Up Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "arrow-up",
+      "subgroupId": "arrow",
+      "label": "Arrow Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "art-color",
+      "subgroupId": "art",
+      "label": "Art Color",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-castle",
+      "subgroupId": "building",
+      "label": "Building Castle",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home",
+      "subgroupId": "building",
+      "label": "Building Home",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home-account",
+      "subgroupId": "building",
+      "label": "Building Home Account",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home-alert",
+      "subgroupId": "building",
+      "label": "Building Home Alert",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home-analytics",
+      "subgroupId": "building",
+      "label": "Building Home Analytics",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home-automation",
+      "subgroupId": "building",
+      "label": "Building Home Automation",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home-check",
+      "subgroupId": "building",
+      "label": "Building Home Check",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home-close",
+      "subgroupId": "building",
+      "label": "Building Home Close",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home-cog",
+      "subgroupId": "building",
+      "label": "Building Home Cog",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home-location",
+      "subgroupId": "building",
+      "label": "Building Home Location",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home-love",
+      "subgroupId": "building",
+      "label": "Building Home Love",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home-minus",
+      "subgroupId": "building",
+      "label": "Building Home Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home-plus",
+      "subgroupId": "building",
+      "label": "Building Home Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home-search",
+      "subgroupId": "building",
+      "label": "Building Home Search",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home-style2",
+      "subgroupId": "building",
+      "label": "Building Home Style2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home-style2-city",
+      "subgroupId": "building",
+      "label": "Building Home Style2 City",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-home-style2-farm",
+      "subgroupId": "building",
+      "label": "Building Home Style2 Farm",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-office",
+      "subgroupId": "building",
+      "label": "Building Office",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-office-cog",
+      "subgroupId": "building",
+      "label": "Building Office Cog",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-office-location",
+      "subgroupId": "building",
+      "label": "Building Office Location",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-office-minus",
+      "subgroupId": "building",
+      "label": "Building Office Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-office-plus",
+      "subgroupId": "building",
+      "label": "Building Office Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "building-shop",
+      "subgroupId": "building",
+      "label": "Building Shop",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard",
+      "subgroupId": "dashboard",
+      "label": "Dashboard",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-chart",
+      "subgroupId": "dashboard",
+      "label": "Dashboard Chart",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-chart-bar",
+      "subgroupId": "dashboard",
+      "label": "Dashboard Chart Bar",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-chart-bell-curve",
+      "subgroupId": "dashboard",
+      "label": "Dashboard Chart Bell Curve",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-chart-bell-curve-cumulative",
+      "subgroupId": "dashboard",
+      "label": "Dashboard Chart Bell Curve Cumulative",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-chart-box",
+      "subgroupId": "dashboard",
+      "label": "Dashboard Chart Box",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-chart-bubble",
+      "subgroupId": "dashboard",
+      "label": "Dashboard Chart Bubble",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-chart-donut",
+      "subgroupId": "dashboard",
+      "label": "Dashboard Chart Donut",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-chart-histogram",
+      "subgroupId": "dashboard",
+      "label": "Dashboard Chart Histogram",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-chart-poll",
+      "subgroupId": "dashboard",
+      "label": "Dashboard Chart Poll",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-chart-ppf",
+      "subgroupId": "dashboard",
+      "label": "Dashboard Chart Ppf",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-chart-scatter-plot",
+      "subgroupId": "dashboard",
+      "label": "Dashboard Chart Scatter Plot",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-chart-scatter-plot-hexbin",
+      "subgroupId": "dashboard",
+      "label": "Dashboard Chart Scatter Plot Hexbin",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-chart-timeline",
+      "subgroupId": "dashboard",
+      "label": "Dashboard Chart Timeline",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-chart-waterfall",
+      "subgroupId": "dashboard",
+      "label": "Dashboard Chart Waterfall",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-high",
+      "subgroupId": "dashboard",
+      "label": "Dashboard High",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "dashboard-low",
+      "subgroupId": "dashboard",
+      "label": "Dashboard Low",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "date-calendar",
+      "subgroupId": "date",
+      "label": "Date Calendar",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "date-calendar-clock",
+      "subgroupId": "date",
+      "label": "Date Calendar Clock",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "date-calendar-clock2",
+      "subgroupId": "date",
+      "label": "Date Calendar Clock2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "date-calendar-minus",
+      "subgroupId": "date",
+      "label": "Date Calendar Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "date-calendar-plus",
+      "subgroupId": "date",
+      "label": "Date Calendar Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "date-calendar-style1",
+      "subgroupId": "date",
+      "label": "Date Calendar Style1",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "date-calendar-style2",
+      "subgroupId": "date",
+      "label": "Date Calendar Style2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "date-calendar-style3",
+      "subgroupId": "date",
+      "label": "Date Calendar Style3",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "date-calendar-style4",
+      "subgroupId": "date",
+      "label": "Date Calendar Style4",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-battery-charging",
+      "subgroupId": "device",
+      "label": "Device Battery Charging",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-battery-charging-quick",
+      "subgroupId": "device",
+      "label": "Device Battery Charging Quick",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-battery-full",
+      "subgroupId": "device",
+      "label": "Device Battery Full",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-battery-low",
+      "subgroupId": "device",
+      "label": "Device Battery Low",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-battery-middle",
+      "subgroupId": "device",
+      "label": "Device Battery Middle",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-camera",
+      "subgroupId": "device",
+      "label": "Device Camera",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-camera-gopro",
+      "subgroupId": "device",
+      "label": "Device Camera Gopro",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-camera-movie",
+      "subgroupId": "device",
+      "label": "Device Camera Movie",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-charging",
+      "subgroupId": "device",
+      "label": "Device Charging",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-charging-circle",
+      "subgroupId": "device",
+      "label": "Device Charging Circle",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-charging-high",
+      "subgroupId": "device",
+      "label": "Device Charging High",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-charging-middle",
+      "subgroupId": "device",
+      "label": "Device Charging Middle",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-charging-quick",
+      "subgroupId": "device",
+      "label": "Device Charging Quick",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-computer",
+      "subgroupId": "device",
+      "label": "Device Computer",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-computer-cd",
+      "subgroupId": "device",
+      "label": "Device Computer Cd",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-game-controller",
+      "subgroupId": "device",
+      "label": "Device Game Controller",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-headphones",
+      "subgroupId": "device",
+      "label": "Device Headphones",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-keyboard",
+      "subgroupId": "device",
+      "label": "Device Keyboard",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-laptop",
+      "subgroupId": "device",
+      "label": "Device Laptop",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-microphone",
+      "subgroupId": "device",
+      "label": "Device Microphone",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-monitor",
+      "subgroupId": "device",
+      "label": "Device Monitor",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-monitor-account",
+      "subgroupId": "device",
+      "label": "Device Monitor Account",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-monitor-dashboard",
+      "subgroupId": "device",
+      "label": "Device Monitor Dashboard",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-monitor-down",
+      "subgroupId": "device",
+      "label": "Device Monitor Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-monitor-edit",
+      "subgroupId": "device",
+      "label": "Device Monitor Edit",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-monitor-multiple",
+      "subgroupId": "device",
+      "label": "Device Monitor Multiple",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-mouse",
+      "subgroupId": "device",
+      "label": "Device Mouse",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-mouse-bluetooth",
+      "subgroupId": "device",
+      "label": "Device Mouse Bluetooth",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-mouse-down",
+      "subgroupId": "device",
+      "label": "Device Mouse Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-mouse-up",
+      "subgroupId": "device",
+      "label": "Device Mouse Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-mouse-vertical",
+      "subgroupId": "device",
+      "label": "Device Mouse Vertical",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-mouse-wireless",
+      "subgroupId": "device",
+      "label": "Device Mouse Wireless",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-pad",
+      "subgroupId": "device",
+      "label": "Device Pad",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-phone",
+      "subgroupId": "device",
+      "label": "Device Phone",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-phone-calculator",
+      "subgroupId": "device",
+      "label": "Device Phone Calculator",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-phone-elderly",
+      "subgroupId": "device",
+      "label": "Device Phone Elderly",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-phone-style2",
+      "subgroupId": "device",
+      "label": "Device Phone Style2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-printer",
+      "subgroupId": "device",
+      "label": "Device Printer",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-smartwatch",
+      "subgroupId": "device",
+      "label": "Device Smartwatch",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-tv",
+      "subgroupId": "device",
+      "label": "Device Tv",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-watch",
+      "subgroupId": "device",
+      "label": "Device Watch",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "device-webcam",
+      "subgroupId": "device",
+      "label": "Device Webcam",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "download-box",
+      "subgroupId": "download",
+      "label": "Download Box",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "download-cloud",
+      "subgroupId": "download",
+      "label": "Download Cloud",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "download-tray",
+      "subgroupId": "download",
+      "label": "Download Tray",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-angry",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Angry",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-close",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Close",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-confused",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Confused",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-cute",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Cute",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-happy",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Happy",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-helpless",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Helpless",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-joy",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Joy",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-lecherous",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Lecherous",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-love",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Love",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-question",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Question",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-sleep",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Sleep",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-surprise",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Surprise",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-unhappy",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Unhappy",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-wink",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Wink",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-xd",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Xd",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-robot-xx",
+      "subgroupId": "emoji",
+      "label": "Emoji Robot Xx",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-thumb-down",
+      "subgroupId": "emoji",
+      "label": "Emoji Thumb Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-thumb-up",
+      "subgroupId": "emoji",
+      "label": "Emoji Thumb Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "emoji-thumb-up-down",
+      "subgroupId": "emoji",
+      "label": "Emoji Thumb Up Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file",
+      "subgroupId": "file",
+      "label": "File",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-code",
+      "subgroupId": "file",
+      "label": "File Code",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-collection",
+      "subgroupId": "file",
+      "label": "File Collection",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-css",
+      "subgroupId": "file",
+      "label": "File Css",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-csv",
+      "subgroupId": "file",
+      "label": "File Csv",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-down",
+      "subgroupId": "file",
+      "label": "File Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-excel",
+      "subgroupId": "file",
+      "label": "File Excel",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-gif",
+      "subgroupId": "file",
+      "label": "File Gif",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-html",
+      "subgroupId": "file",
+      "label": "File Html",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-image",
+      "subgroupId": "file",
+      "label": "File Image",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-jpg",
+      "subgroupId": "file",
+      "label": "File Jpg",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-js",
+      "subgroupId": "file",
+      "label": "File Js",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-json",
+      "subgroupId": "file",
+      "label": "File Json",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-minus",
+      "subgroupId": "file",
+      "label": "File Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-movie",
+      "subgroupId": "file",
+      "label": "File Movie",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-music",
+      "subgroupId": "file",
+      "label": "File Music",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-pdf",
+      "subgroupId": "file",
+      "label": "File Pdf",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-plus",
+      "subgroupId": "file",
+      "label": "File Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-png",
+      "subgroupId": "file",
+      "label": "File Png",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-ppt",
+      "subgroupId": "file",
+      "label": "File Ppt",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-search",
+      "subgroupId": "file",
+      "label": "File Search",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-style2",
+      "subgroupId": "file",
+      "label": "File Style2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-svg",
+      "subgroupId": "file",
+      "label": "File Svg",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-system",
+      "subgroupId": "file",
+      "label": "File System",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-txt",
+      "subgroupId": "file",
+      "label": "File Txt",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-unable",
+      "subgroupId": "file",
+      "label": "File Unable",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-up",
+      "subgroupId": "file",
+      "label": "File Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-webp",
+      "subgroupId": "file",
+      "label": "File Webp",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "file-word",
+      "subgroupId": "file",
+      "label": "File Word",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder",
+      "subgroupId": "folder",
+      "label": "Folder",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-check",
+      "subgroupId": "folder",
+      "label": "Folder Check",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-close",
+      "subgroupId": "folder",
+      "label": "Folder Close",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-disable",
+      "subgroupId": "folder",
+      "label": "Folder Disable",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-down",
+      "subgroupId": "folder",
+      "label": "Folder Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-info",
+      "subgroupId": "folder",
+      "label": "Folder Info",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-key",
+      "subgroupId": "folder",
+      "label": "Folder Key",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-like",
+      "subgroupId": "folder",
+      "label": "Folder Like",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-lock",
+      "subgroupId": "folder",
+      "label": "Folder Lock",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-lock-open",
+      "subgroupId": "folder",
+      "label": "Folder Lock Open",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-minus",
+      "subgroupId": "folder",
+      "label": "Folder Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-open",
+      "subgroupId": "folder",
+      "label": "Folder Open",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-plus",
+      "subgroupId": "folder",
+      "label": "Folder Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-read",
+      "subgroupId": "folder",
+      "label": "Folder Read",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-search",
+      "subgroupId": "folder",
+      "label": "Folder Search",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-unlock",
+      "subgroupId": "folder",
+      "label": "Folder Unlock",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-up",
+      "subgroupId": "folder",
+      "label": "Folder Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "folder-write",
+      "subgroupId": "folder",
+      "label": "Folder Write",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-apple",
+      "subgroupId": "food",
+      "label": "Food Apple",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-banana",
+      "subgroupId": "food",
+      "label": "Food Banana",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-box",
+      "subgroupId": "food",
+      "label": "Food Box",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-cake",
+      "subgroupId": "food",
+      "label": "Food Cake",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-chips",
+      "subgroupId": "food",
+      "label": "Food Chips",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-cupcake",
+      "subgroupId": "food",
+      "label": "Food Cupcake",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-fork-knife",
+      "subgroupId": "food",
+      "label": "Food Fork Knife",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-grape",
+      "subgroupId": "food",
+      "label": "Food Grape",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-hamburger",
+      "subgroupId": "food",
+      "label": "Food Hamburger",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-ice-cream",
+      "subgroupId": "food",
+      "label": "Food Ice Cream",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-ice-pop",
+      "subgroupId": "food",
+      "label": "Food Ice Pop",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-pear",
+      "subgroupId": "food",
+      "label": "Food Pear",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-pineapple",
+      "subgroupId": "food",
+      "label": "Food Pineapple",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-pizza",
+      "subgroupId": "food",
+      "label": "Food Pizza",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-watermelon",
+      "subgroupId": "food",
+      "label": "Food Watermelon",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "food-wine",
+      "subgroupId": "food",
+      "label": "Food Wine",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "health-face-mask",
+      "subgroupId": "health",
+      "label": "Health Face Mask",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "health-heart",
+      "subgroupId": "health",
+      "label": "Health Heart",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "health-medical-bag",
+      "subgroupId": "health",
+      "label": "Health Medical Bag",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "health-pill",
+      "subgroupId": "health",
+      "label": "Health Pill",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "health-stethoscope",
+      "subgroupId": "health",
+      "label": "Health Stethoscope",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "health-thermometer",
+      "subgroupId": "health",
+      "label": "Health Thermometer",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "health-water",
+      "subgroupId": "health",
+      "label": "Health Water",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "health-water-minus",
+      "subgroupId": "health",
+      "label": "Health Water Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "health-water-plus",
+      "subgroupId": "health",
+      "label": "Health Water Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "image",
+      "subgroupId": "image",
+      "label": "Image",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "image-down",
+      "subgroupId": "image",
+      "label": "Image Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "image-left",
+      "subgroupId": "image",
+      "label": "Image Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "image-panoramic",
+      "subgroupId": "image",
+      "label": "Image Panoramic",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "image-right",
+      "subgroupId": "image",
+      "label": "Image Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "image-up",
+      "subgroupId": "image",
+      "label": "Image Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "inbox",
+      "subgroupId": "inbox",
+      "label": "Inbox",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "inbox-arrow-down",
+      "subgroupId": "inbox",
+      "label": "Inbox Arrow Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "inbox-arrow-up",
+      "subgroupId": "inbox",
+      "label": "Inbox Arrow Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "inbox-disk",
+      "subgroupId": "inbox",
+      "label": "Inbox Disk",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "inbox-style2",
+      "subgroupId": "inbox",
+      "label": "Inbox Style2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "inbox-tray",
+      "subgroupId": "inbox",
+      "label": "Inbox Tray",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "inbox-tray-arrow-down",
+      "subgroupId": "inbox",
+      "label": "Inbox Tray Arrow Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "inbox-tray-arrow-up",
+      "subgroupId": "inbox",
+      "label": "Inbox Tray Arrow Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "inbox-tray-file",
+      "subgroupId": "inbox",
+      "label": "Inbox Tray File",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-bluetooth",
+      "subgroupId": "it",
+      "label": "It Bluetooth",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-capacitor",
+      "subgroupId": "it",
+      "label": "It Capacitor",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-conduit",
+      "subgroupId": "it",
+      "label": "It Conduit",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-cpu",
+      "subgroupId": "it",
+      "label": "It Cpu",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-fan",
+      "subgroupId": "it",
+      "label": "It Fan",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-fan-alert",
+      "subgroupId": "it",
+      "label": "It Fan Alert",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-fan-down",
+      "subgroupId": "it",
+      "label": "It Fan Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-fan-error",
+      "subgroupId": "it",
+      "label": "It Fan Error",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-fan-minus",
+      "subgroupId": "it",
+      "label": "It Fan Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-fan-plus",
+      "subgroupId": "it",
+      "label": "It Fan Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-fan-speed1",
+      "subgroupId": "it",
+      "label": "It Fan Speed1",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-fan-speed2",
+      "subgroupId": "it",
+      "label": "It Fan Speed2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-fan-speed3",
+      "subgroupId": "it",
+      "label": "It Fan Speed3",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-fan-speed4",
+      "subgroupId": "it",
+      "label": "It Fan Speed4",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-fan-up",
+      "subgroupId": "it",
+      "label": "It Fan Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-gpu",
+      "subgroupId": "it",
+      "label": "It Gpu",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-harddisk",
+      "subgroupId": "it",
+      "label": "It Harddisk",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-internet",
+      "subgroupId": "it",
+      "label": "It Internet",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-memory",
+      "subgroupId": "it",
+      "label": "It Memory",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-network",
+      "subgroupId": "it",
+      "label": "It Network",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-network-access-point",
+      "subgroupId": "it",
+      "label": "It Network Access Point",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-network-console",
+      "subgroupId": "it",
+      "label": "It Network Console",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-network-disable",
+      "subgroupId": "it",
+      "label": "It Network Disable",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-network-folder",
+      "subgroupId": "it",
+      "label": "It Network Folder",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-network-help",
+      "subgroupId": "it",
+      "label": "It Network Help",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-network-ip",
+      "subgroupId": "it",
+      "label": "It Network Ip",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-network-minus",
+      "subgroupId": "it",
+      "label": "It Network Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-network-monitor",
+      "subgroupId": "it",
+      "label": "It Network Monitor",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-network-normal",
+      "subgroupId": "it",
+      "label": "It Network Normal",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-network-pinter",
+      "subgroupId": "it",
+      "label": "It Network Pinter",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-network-plus",
+      "subgroupId": "it",
+      "label": "It Network Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-network-port",
+      "subgroupId": "it",
+      "label": "It Network Port",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-network-router",
+      "subgroupId": "it",
+      "label": "It Network Router",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-network-router-wireless",
+      "subgroupId": "it",
+      "label": "It Network Router Wireless",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-resistance",
+      "subgroupId": "it",
+      "label": "It Resistance",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-resistance-style2",
+      "subgroupId": "it",
+      "label": "It Resistance Style2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-rom",
+      "subgroupId": "it",
+      "label": "It Rom",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-save",
+      "subgroupId": "it",
+      "label": "It Save",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-ssd",
+      "subgroupId": "it",
+      "label": "It Ssd",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-ssd-style2",
+      "subgroupId": "it",
+      "label": "It Ssd Style2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-volume-large",
+      "subgroupId": "it",
+      "label": "It Volume Large",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-volume-low",
+      "subgroupId": "it",
+      "label": "It Volume Low",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-volume-middle",
+      "subgroupId": "it",
+      "label": "It Volume Middle",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-volume-small",
+      "subgroupId": "it",
+      "label": "It Volume Small",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "it-wifi",
+      "subgroupId": "it",
+      "label": "It Wifi",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "life-love",
+      "subgroupId": "life",
+      "label": "Life Love",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-android",
+      "subgroupId": "logo",
+      "label": "Logo Android",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-apple",
+      "subgroupId": "logo",
+      "label": "Logo Apple",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-aws",
+      "subgroupId": "logo",
+      "label": "Logo Aws",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-blender",
+      "subgroupId": "logo",
+      "label": "Logo Blender",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-digital-ocean",
+      "subgroupId": "logo",
+      "label": "Logo Digital Ocean",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-docker",
+      "subgroupId": "logo",
+      "label": "Logo Docker",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-dropbox",
+      "subgroupId": "logo",
+      "label": "Logo Dropbox",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-ethereum",
+      "subgroupId": "logo",
+      "label": "Logo Ethereum",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-facebook",
+      "subgroupId": "logo",
+      "label": "Logo Facebook",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-finder",
+      "subgroupId": "logo",
+      "label": "Logo Finder",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-instagram",
+      "subgroupId": "logo",
+      "label": "Logo Instagram",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-kubernetes",
+      "subgroupId": "logo",
+      "label": "Logo Kubernetes",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-linkedin",
+      "subgroupId": "logo",
+      "label": "Logo Linkedin",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-linux",
+      "subgroupId": "logo",
+      "label": "Logo Linux",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-microsoft-azure",
+      "subgroupId": "logo",
+      "label": "Logo Microsoft Azure",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-microsoft-windows",
+      "subgroupId": "logo",
+      "label": "Logo Microsoft Windows",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-patreon",
+      "subgroupId": "logo",
+      "label": "Logo Patreon",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-qq",
+      "subgroupId": "logo",
+      "label": "Logo Qq",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-react",
+      "subgroupId": "logo",
+      "label": "Logo React",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-redhat",
+      "subgroupId": "logo",
+      "label": "Logo Redhat",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-ubuntu",
+      "subgroupId": "logo",
+      "label": "Logo Ubuntu",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-vimeo",
+      "subgroupId": "logo",
+      "label": "Logo Vimeo",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-vuejs",
+      "subgroupId": "logo",
+      "label": "Logo Vuejs",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-wechat",
+      "subgroupId": "logo",
+      "label": "Logo Wechat",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-x",
+      "subgroupId": "logo",
+      "label": "Logo X",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "logo-youtube",
+      "subgroupId": "logo",
+      "label": "Logo Youtube",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "map",
+      "subgroupId": "map",
+      "label": "Map",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "map-compass",
+      "subgroupId": "map",
+      "label": "Map Compass",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "map-compass-north",
+      "subgroupId": "map",
+      "label": "Map Compass North",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "map-marker",
+      "subgroupId": "map",
+      "label": "Map Marker",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "map-marker-radius",
+      "subgroupId": "map",
+      "label": "Map Marker Radius",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "map-style2",
+      "subgroupId": "map",
+      "label": "Map Style2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "map-style3",
+      "subgroupId": "map",
+      "label": "Map Style3",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "map-target",
+      "subgroupId": "map",
+      "label": "Map Target",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "map-target-style2",
+      "subgroupId": "map",
+      "label": "Map Target Style2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "map-tree",
+      "subgroupId": "map",
+      "label": "Map Tree",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "map-tree-style2",
+      "subgroupId": "map",
+      "label": "Map Tree Style2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "media-music",
+      "subgroupId": "media",
+      "label": "Media Music",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "media-music-half",
+      "subgroupId": "media",
+      "label": "Media Music Half",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "media-music-note",
+      "subgroupId": "media",
+      "label": "Media Music Note",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "media-music-note-sixteenth",
+      "subgroupId": "media",
+      "label": "Media Music Note Sixteenth",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "media-pause",
+      "subgroupId": "media",
+      "label": "Media Pause",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "media-play-pause",
+      "subgroupId": "media",
+      "label": "Media Play Pause",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "message-email",
+      "subgroupId": "message",
+      "label": "Message Email",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "message-email-down",
+      "subgroupId": "message",
+      "label": "Message Email Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "message-email-minus",
+      "subgroupId": "message",
+      "label": "Message Email Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "message-email-open",
+      "subgroupId": "message",
+      "label": "Message Email Open",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "message-email-plus",
+      "subgroupId": "message",
+      "label": "Message Email Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "message-email-up",
+      "subgroupId": "message",
+      "label": "Message Email Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "message-phone",
+      "subgroupId": "message",
+      "label": "Message Phone",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "message-phone-incoming",
+      "subgroupId": "message",
+      "label": "Message Phone Incoming",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "message-phone-minus",
+      "subgroupId": "message",
+      "label": "Message Phone Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "message-phone-outgoing",
+      "subgroupId": "message",
+      "label": "Message Phone Outgoing",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "message-phone-plus",
+      "subgroupId": "message",
+      "label": "Message Phone Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "pay-bankcard",
+      "subgroupId": "pay",
+      "label": "Pay Bankcard",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "pay-card",
+      "subgroupId": "pay",
+      "label": "Pay Card",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "pay-card-cog",
+      "subgroupId": "pay",
+      "label": "Pay Card Cog",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "pay-card-location",
+      "subgroupId": "pay",
+      "label": "Pay Card Location",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "pay-card-settings",
+      "subgroupId": "pay",
+      "label": "Pay Card Settings",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "pay-cash",
+      "subgroupId": "pay",
+      "label": "Pay Cash",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "pay-cash-clock",
+      "subgroupId": "pay",
+      "label": "Pay Cash Clock",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "pay-cash-dollar",
+      "subgroupId": "pay",
+      "label": "Pay Cash Dollar",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "pay-cash-one",
+      "subgroupId": "pay",
+      "label": "Pay Cash One",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "pay-cash-one-hundred",
+      "subgroupId": "pay",
+      "label": "Pay Cash One Hundred",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "pay-cash-sync",
+      "subgroupId": "pay",
+      "label": "Pay Cash Sync",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "pay-cash-ten",
+      "subgroupId": "pay",
+      "label": "Pay Cash Ten",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "pay-wallet",
+      "subgroupId": "pay",
+      "label": "Pay Wallet",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science",
+      "subgroupId": "science",
+      "label": "Science",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science-book",
+      "subgroupId": "science",
+      "label": "Science Book",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science-book-clock",
+      "subgroupId": "science",
+      "label": "Science Book Clock",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science-book-cog",
+      "subgroupId": "science",
+      "label": "Science Book Cog",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science-book-lock",
+      "subgroupId": "science",
+      "label": "Science Book Lock",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science-book-minus",
+      "subgroupId": "science",
+      "label": "Science Book Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science-book-open",
+      "subgroupId": "science",
+      "label": "Science Book Open",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science-book-open-mark",
+      "subgroupId": "science",
+      "label": "Science Book Open Mark",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science-book-open-page",
+      "subgroupId": "science",
+      "label": "Science Book Open Page",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science-book-plus",
+      "subgroupId": "science",
+      "label": "Science Book Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science-chemistry",
+      "subgroupId": "science",
+      "label": "Science Chemistry",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science-doctor",
+      "subgroupId": "science",
+      "label": "Science Doctor",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science-flask",
+      "subgroupId": "science",
+      "label": "Science Flask",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science-graph",
+      "subgroupId": "science",
+      "label": "Science Graph",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science-root",
+      "subgroupId": "science",
+      "label": "Science Root",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "science-test-tube",
+      "subgroupId": "science",
+      "label": "Science Test Tube",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "secure-eye",
+      "subgroupId": "secure",
+      "label": "Secure Eye",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "secure-eye-closed",
+      "subgroupId": "secure",
+      "label": "Secure Eye Closed",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "secure-key",
+      "subgroupId": "secure",
+      "label": "Secure Key",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "secure-key-box",
+      "subgroupId": "secure",
+      "label": "Secure Key Box",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "secure-lock",
+      "subgroupId": "secure",
+      "label": "Secure Lock",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "secure-lock-open",
+      "subgroupId": "secure",
+      "label": "Secure Lock Open",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "secure-lock-style2",
+      "subgroupId": "secure",
+      "label": "Secure Lock Style2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "secure-lock-style2-open",
+      "subgroupId": "secure",
+      "label": "Secure Lock Style2 Open",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "secure-shield",
+      "subgroupId": "secure",
+      "label": "Secure Shield",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "secure-shield-check",
+      "subgroupId": "secure",
+      "label": "Secure Shield Check",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "secure-shield-check-small",
+      "subgroupId": "secure",
+      "label": "Secure Shield Check Small",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "secure-shield-plus",
+      "subgroupId": "secure",
+      "label": "Secure Shield Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "secure-shield-small",
+      "subgroupId": "secure",
+      "label": "Secure Shield Small",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "social-message",
+      "subgroupId": "social",
+      "label": "Social Message",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "social-message-alert",
+      "subgroupId": "social",
+      "label": "Social Message Alert",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "social-message-badge",
+      "subgroupId": "social",
+      "label": "Social Message Badge",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "social-message-check",
+      "subgroupId": "social",
+      "label": "Social Message Check",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "social-message-clock",
+      "subgroupId": "social",
+      "label": "Social Message Clock",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "social-message-cog",
+      "subgroupId": "social",
+      "label": "Social Message Cog",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "social-message-lock",
+      "subgroupId": "social",
+      "label": "Social Message Lock",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "social-message-minus",
+      "subgroupId": "social",
+      "label": "Social Message Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "social-message-plus",
+      "subgroupId": "social",
+      "label": "Social Message Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "social-message-question",
+      "subgroupId": "social",
+      "label": "Social Message Question",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "social-message-search",
+      "subgroupId": "social",
+      "label": "Social Message Search",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "social-message-talk",
+      "subgroupId": "social",
+      "label": "Social Message Talk",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-check",
+      "subgroupId": "symbol",
+      "label": "Symbol Check",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-check-box",
+      "subgroupId": "symbol",
+      "label": "Symbol Check Box",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-check-circle",
+      "subgroupId": "symbol",
+      "label": "Symbol Check Circle",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-check-min",
+      "subgroupId": "symbol",
+      "label": "Symbol Check Min",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-check-stroke",
+      "subgroupId": "symbol",
+      "label": "Symbol Check Stroke",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-check-stroke-box",
+      "subgroupId": "symbol",
+      "label": "Symbol Check Stroke Box",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-check-stroke-circle",
+      "subgroupId": "symbol",
+      "label": "Symbol Check Stroke Circle",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-check-stroke-min",
+      "subgroupId": "symbol",
+      "label": "Symbol Check Stroke Min",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-close",
+      "subgroupId": "symbol",
+      "label": "Symbol Close",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-close-box",
+      "subgroupId": "symbol",
+      "label": "Symbol Close Box",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-close-circle",
+      "subgroupId": "symbol",
+      "label": "Symbol Close Circle",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-close-min",
+      "subgroupId": "symbol",
+      "label": "Symbol Close Min",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-close-stroke",
+      "subgroupId": "symbol",
+      "label": "Symbol Close Stroke",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-close-stroke-box",
+      "subgroupId": "symbol",
+      "label": "Symbol Close Stroke Box",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-close-stroke-circle",
+      "subgroupId": "symbol",
+      "label": "Symbol Close Stroke Circle",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-close-stroke-min",
+      "subgroupId": "symbol",
+      "label": "Symbol Close Stroke Min",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-minus",
+      "subgroupId": "symbol",
+      "label": "Symbol Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-minus-box",
+      "subgroupId": "symbol",
+      "label": "Symbol Minus Box",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-minus-circle",
+      "subgroupId": "symbol",
+      "label": "Symbol Minus Circle",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-minus-min",
+      "subgroupId": "symbol",
+      "label": "Symbol Minus Min",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-minus-stroke",
+      "subgroupId": "symbol",
+      "label": "Symbol Minus Stroke",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-minus-stroke-box",
+      "subgroupId": "symbol",
+      "label": "Symbol Minus Stroke Box",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-minus-stroke-circle",
+      "subgroupId": "symbol",
+      "label": "Symbol Minus Stroke Circle",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-minus-stroke-min",
+      "subgroupId": "symbol",
+      "label": "Symbol Minus Stroke Min",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-plus",
+      "subgroupId": "symbol",
+      "label": "Symbol Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-plus-box",
+      "subgroupId": "symbol",
+      "label": "Symbol Plus Box",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-plus-box-stroke",
+      "subgroupId": "symbol",
+      "label": "Symbol Plus Box Stroke",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-plus-circle",
+      "subgroupId": "symbol",
+      "label": "Symbol Plus Circle",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-plus-circle-stroke",
+      "subgroupId": "symbol",
+      "label": "Symbol Plus Circle Stroke",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-plus-min",
+      "subgroupId": "symbol",
+      "label": "Symbol Plus Min",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-plus-stroke",
+      "subgroupId": "symbol",
+      "label": "Symbol Plus Stroke",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "symbol-plus-stroke-min",
+      "subgroupId": "symbol",
+      "label": "Symbol Plus Stroke Min",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-av-timer",
+      "subgroupId": "time",
+      "label": "Time Av Timer",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-clock",
+      "subgroupId": "time",
+      "label": "Time Clock",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-clock-alarm",
+      "subgroupId": "time",
+      "label": "Time Clock Alarm",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-clock-nine",
+      "subgroupId": "time",
+      "label": "Time Clock Nine",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-clock-seven",
+      "subgroupId": "time",
+      "label": "Time Clock Seven",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-clock-six",
+      "subgroupId": "time",
+      "label": "Time Clock Six",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-clock-ten",
+      "subgroupId": "time",
+      "label": "Time Clock Ten",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-clock-three",
+      "subgroupId": "time",
+      "label": "Time Clock Three",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-timer",
+      "subgroupId": "time",
+      "label": "Time Timer",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-timer-cog",
+      "subgroupId": "time",
+      "label": "Time Timer Cog",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-timer-lock",
+      "subgroupId": "time",
+      "label": "Time Timer Lock",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-timer-minus",
+      "subgroupId": "time",
+      "label": "Time Timer Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-timer-pause",
+      "subgroupId": "time",
+      "label": "Time Timer Pause",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-timer-play",
+      "subgroupId": "time",
+      "label": "Time Timer Play",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-timer-plus",
+      "subgroupId": "time",
+      "label": "Time Timer Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-timer-refresh",
+      "subgroupId": "time",
+      "label": "Time Timer Refresh",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-timer-sand",
+      "subgroupId": "time",
+      "label": "Time Timer Sand",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-timer-sand-complete",
+      "subgroupId": "time",
+      "label": "Time Timer Sand Complete",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-timer-sand-running",
+      "subgroupId": "time",
+      "label": "Time Timer Sand Running",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-timer-star",
+      "subgroupId": "time",
+      "label": "Time Timer Star",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "time-timer-stop",
+      "subgroupId": "time",
+      "label": "Time Timer Stop",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "traveling-bag-suitcase",
+      "subgroupId": "traveling",
+      "label": "Traveling Bag Suitcase",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "traveling-earth",
+      "subgroupId": "traveling",
+      "label": "Traveling Earth",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "traveling-earth-check",
+      "subgroupId": "traveling",
+      "label": "Traveling Earth Check",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "traveling-earth-close",
+      "subgroupId": "traveling",
+      "label": "Traveling Earth Close",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "traveling-earth-down",
+      "subgroupId": "traveling",
+      "label": "Traveling Earth Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "traveling-earth-left",
+      "subgroupId": "traveling",
+      "label": "Traveling Earth Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "traveling-earth-minus",
+      "subgroupId": "traveling",
+      "label": "Traveling Earth Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "traveling-earth-plus",
+      "subgroupId": "traveling",
+      "label": "Traveling Earth Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "traveling-earth-right",
+      "subgroupId": "traveling",
+      "label": "Traveling Earth Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "traveling-earth-up",
+      "subgroupId": "traveling",
+      "label": "Traveling Earth Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "traveling-language",
+      "subgroupId": "traveling",
+      "label": "Traveling Language",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "traveling-umbrella",
+      "subgroupId": "traveling",
+      "label": "Traveling Umbrella",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-align-center",
+      "subgroupId": "ui",
+      "label": "Ui Align Center",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-align-left",
+      "subgroupId": "ui",
+      "label": "Ui Align Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-align-right",
+      "subgroupId": "ui",
+      "label": "Ui Align Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-copy",
+      "subgroupId": "ui",
+      "label": "Ui Copy",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-delete",
+      "subgroupId": "ui",
+      "label": "Ui Delete",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-edit",
+      "subgroupId": "ui",
+      "label": "Ui Edit",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-filter",
+      "subgroupId": "ui",
+      "label": "Ui Filter",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-help",
+      "subgroupId": "ui",
+      "label": "Ui Help",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-info",
+      "subgroupId": "ui",
+      "label": "Ui Info",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-info-slab",
+      "subgroupId": "ui",
+      "label": "Ui Info Slab",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-menu",
+      "subgroupId": "ui",
+      "label": "Ui Menu",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-menu-badge",
+      "subgroupId": "ui",
+      "label": "Ui Menu Badge",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-more",
+      "subgroupId": "ui",
+      "label": "Ui More",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-other",
+      "subgroupId": "ui",
+      "label": "Ui Other",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-power",
+      "subgroupId": "ui",
+      "label": "Ui Power",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-search",
+      "subgroupId": "ui",
+      "label": "Ui Search",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-setting",
+      "subgroupId": "ui",
+      "label": "Ui Setting",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-setting-cog",
+      "subgroupId": "ui",
+      "label": "Ui Setting Cog",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-setting-cog-box",
+      "subgroupId": "ui",
+      "label": "Ui Setting Cog Box",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-setting-cog-style2",
+      "subgroupId": "ui",
+      "label": "Ui Setting Cog Style2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-setting-cog-style3",
+      "subgroupId": "ui",
+      "label": "Ui Setting Cog Style3",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-setting-style2",
+      "subgroupId": "ui",
+      "label": "Ui Setting Style2",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-tune",
+      "subgroupId": "ui",
+      "label": "Ui Tune",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-tune-vertical",
+      "subgroupId": "ui",
+      "label": "Ui Tune Vertical",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-wrench",
+      "subgroupId": "ui",
+      "label": "Ui Wrench",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-wrench-cog",
+      "subgroupId": "ui",
+      "label": "Ui Wrench Cog",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "ui-writer",
+      "subgroupId": "ui",
+      "label": "Ui Writer",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "upload-box",
+      "subgroupId": "upload",
+      "label": "Upload Box",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "upload-cloud",
+      "subgroupId": "upload",
+      "label": "Upload Cloud",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "upload-tray",
+      "subgroupId": "upload",
+      "label": "Upload Tray",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account",
+      "subgroupId": "user",
+      "label": "User Account",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-box",
+      "subgroupId": "user",
+      "label": "User Account Box",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-cancel",
+      "subgroupId": "user",
+      "label": "User Account Cancel",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-check",
+      "subgroupId": "user",
+      "label": "User Account Check",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-circle",
+      "subgroupId": "user",
+      "label": "User Account Circle",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-down",
+      "subgroupId": "user",
+      "label": "User Account Down",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-group",
+      "subgroupId": "user",
+      "label": "User Account Group",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-left",
+      "subgroupId": "user",
+      "label": "User Account Left",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-minus",
+      "subgroupId": "user",
+      "label": "User Account Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-multiple",
+      "subgroupId": "user",
+      "label": "User Account Multiple",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-multiple-minus",
+      "subgroupId": "user",
+      "label": "User Account Multiple Minus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-multiple-plus",
+      "subgroupId": "user",
+      "label": "User Account Multiple Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-multiple-switch",
+      "subgroupId": "user",
+      "label": "User Account Multiple Switch",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-plus",
+      "subgroupId": "user",
+      "label": "User Account Plus",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-read",
+      "subgroupId": "user",
+      "label": "User Account Read",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-remove",
+      "subgroupId": "user",
+      "label": "User Account Remove",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-right",
+      "subgroupId": "user",
+      "label": "User Account Right",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-search",
+      "subgroupId": "user",
+      "label": "User Account Search",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-setting",
+      "subgroupId": "user",
+      "label": "User Account Setting",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-account-up",
+      "subgroupId": "user",
+      "label": "User Account Up",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "user-recognition",
+      "subgroupId": "user",
+      "label": "User Recognition",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "weather-cloud",
+      "subgroupId": "weather",
+      "label": "Weather Cloud",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "weather-lightning",
+      "subgroupId": "weather",
+      "label": "Weather Lightning",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "weather-moon",
+      "subgroupId": "weather",
+      "label": "Weather Moon",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "weather-rain",
+      "subgroupId": "weather",
+      "label": "Weather Rain",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "weather-rain-pouring",
+      "subgroupId": "weather",
+      "label": "Weather Rain Pouring",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "weather-sun",
+      "subgroupId": "weather",
+      "label": "Weather Sun",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    },
+    {
+      "id": "weather-thermometer",
+      "subgroupId": "weather",
+      "label": "Weather Thermometer",
+      "aliases": [],
+      "addedAt": "2026-08-06T04:45:46.385Z",
+      "updatedAt": "2026-08-06T04:45:46.385Z"
+    }
+  ]
+}

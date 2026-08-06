@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+*.tsbuildinfo
+
+# Build output
+dist/
+coverage/
+
+# Editor
+.DS_Store
+.idea/
+.vscode/
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+# Caches
+.rollup.cache/
+.vite/
+
+# Temporary user uploads and ZIP output
+.tmp/
+uploads/
+output/
+*.zip

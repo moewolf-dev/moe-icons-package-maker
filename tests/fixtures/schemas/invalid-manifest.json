@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "groupId": "my-custom",
+  "displayName": "My Custom",
+  "styleId": "outline",
+  "author": {
+    "name": "Ada",
+    "email": "a@x.com",
+    "license": "MIT"
+  },
+  "createdWith": "moe-icons-package-maker@0.1.0",
+  "createdAt": "2026-08-06T00:00:00.000Z",
+  "entries": [
+    {
+      "iconId": "arrow-chevron-right",
+      "subgroupId": "arrow",
+      "outputPath": "../escape/x.svg",
+      "checksum": "bad"
+    }
+  ],
+  "validation": {
+    "selected": 5,
+    "filled": 2,
+    "valid": 2,
+    "warnings": 0,
+    "errors": 0,
+    "missing": 3
+  }
+}

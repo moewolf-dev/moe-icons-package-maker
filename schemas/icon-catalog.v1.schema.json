@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.moeicons.dev/icon-catalog/v1.schema.json",
+  "title": "IconCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "icons"],
+  "properties": {
+    "schemaVersion": {
+      "const": 1,
+      "description": "Reject unknown future major versions."
+    },
+    "icons": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "subgroupId", "label", "aliases", "addedAt", "updatedAt"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$",
+            "minLength": 2,
+            "maxLength": 64
+          },
+          "subgroupId": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+          },
+          "label": { "type": "string", "minLength": 1 },
+          "aliases": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "referenceIcon": { "type": "string" },
+          "addedAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  }
+}

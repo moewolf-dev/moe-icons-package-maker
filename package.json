@@ -1,0 +1,33 @@
+{
+  "name": "moe-icons-package-maker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Moeicons online visual package maker: catalog, mapping, validation, deterministic ZIP, and submission adapters.",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "catalog:generate": "vite-node scripts/generate-catalog.mts",
+    "catalog:reconcile": "vite-node src/catalog/reconcile.ts",
+    "format": "prettier --write src tests"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  }
+}
