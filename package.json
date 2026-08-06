@@ -48,6 +48,7 @@
     "vitest": "^2.0.0"
   },
   "dependencies": {
-    "fast-xml-parser": "^5.10.1"
+    "fast-xml-parser": "^5.10.1",
+    "fflate": "^0.8.3"
   }
 }
