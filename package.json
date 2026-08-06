@@ -44,6 +44,7 @@
     "ui:dev": "vite",
     "ui:build": "vite build",
     "ui:preview": "vite preview",
+    "serve": "vite-node src/cli/serve-bin.ts",
     "catalog:generate": "vite-node scripts/generate-catalog.mts",
     "catalog:reconcile": "vite-node src/catalog/reconcile.ts",
     "format": "prettier --write src tests"
