@@ -1,0 +1,55 @@
+name: Build icon group
+
+# Consumes an immutable build request (checked-in or downloaded), runs the
+# maker core, and uploads ZIP/report/checksum artifacts. Never publishes to
+# npm/official channels from this workflow; user and official channels are
+# separated (PMA-04/PMA-05).
+
+on:
+  workflow_dispatch:
+    inputs:
+      requestPath:
+        description: "Path to the build request JSON inside the repo"
+        required: true
+        type: string
+      artifactsRetentionDays:
+        description: "Artifact retention in days"
+        required: false
+        default: "14"
+        type: number
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: maker-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Run maker build
+        id: maker
+        run: |
+          npx vite-node src/cli/node-cli.ts "${{ inputs.requestPath }}" > build-result.json
+          echo "exit=$?"
+        env:
+          # marker so the CLI can stream progress; the CLI never prints secrets
+          MAKER_CI: "1"
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: icon-group-build
+          path: |
+            out/
+            build-result.json
+          retention-days: ${{ inputs.artifactsRetentionDays }}
