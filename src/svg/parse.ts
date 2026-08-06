@@ -170,15 +170,9 @@ type ResultSvgSource =
   | { readonly ok: true; readonly value: SvgSource }
   | { readonly ok: false; readonly errors: ValidationIssue[] };
 
-function toElements(value: unknown): SvgElement[] {
-  if (value === undefined || value === null) return [];
-  if (Array.isArray(value)) return value.map((v) => toElement(v));
-  return [toElement(value)];
-}
-
-function toElement(node: unknown): SvgElement {
+function toElement(node: unknown, name: string): SvgElement {
   if (typeof node !== "object" || node === null) {
-    return { name: "#text", attributes: {}, children: [], text: String(node ?? "") };
+    return { name, attributes: {}, children: [], text: String(node ?? "") };
   }
   const record = node as Record<string, unknown>;
   const attributes: Record<string, string> = {};
@@ -186,7 +180,7 @@ function toElement(node: unknown): SvgElement {
   let text = "";
 
   for (const [key, value] of Object.entries(record)) {
-    if (key === "#text") {
+    if (key === "#text" || key === "#cdata") {
       text = String(value ?? "");
       continue;
     }
@@ -196,16 +190,17 @@ function toElement(node: unknown): SvgElement {
     } else if (key.startsWith("#")) {
       // comments / cdata / instruction; ignore content
     } else {
-      children.push(...toElements(value));
+      children.push(...toElements(value, key));
     }
   }
 
-  return { name: "", attributes, children, text };
+  return { name, attributes, children, text };
 }
 
-function toNamedElement(node: unknown): SvgElement {
-  const el = toElement(node);
-  return el;
+function toElements(value: unknown, name: string): SvgElement[] {
+  if (value === undefined || value === null) return [];
+  if (Array.isArray(value)) return value.map((v) => toElement(v, name));
+  return [toElement(value, name)];
 }
 
 /**
@@ -278,7 +273,7 @@ export function parseSvg(source: SvgSource): ParseResult {
     };
   }
 
-  const rootEl = toNamedElement(roots[0]);
+  const rootEl = toElement(roots[0], "svg");
 
   const traverse = (node: SvgElement, path: string): ValidationIssue[] => {
     const issues: ValidationIssue[] = [];

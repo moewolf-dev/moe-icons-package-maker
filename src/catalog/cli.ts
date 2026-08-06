@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { readFileSync, existsSync } from "node:fs";
+import { existsSync } from "node:fs";
 import { cmdAdd, cmdUpdate, cmdDeprecate, cmdRemove } from "./maintenance.js";
 
 /**

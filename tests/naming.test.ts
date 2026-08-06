@@ -81,7 +81,8 @@ describe("naming specification grammar", () => {
     );
     expect(result.ok).toBe(true);
     if (result.ok) {
-      expect(result.value.icons[0].id).toBe("archive-box-collection-large");
+      const first = result.value.icons[0];
+      expect(first?.id).toBe("archive-box-collection-large");
     }
   });
 });
