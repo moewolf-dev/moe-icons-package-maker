@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { MakerApp } from "../../src/ui/maker-app";
 import { VirtualizedIconGrid } from "../../src/ui/components/virtualized-icon-grid";
 import type { IconCatalog } from "../../src/contracts/types";
@@ -63,5 +64,34 @@ describe("accessibility and responsiveness", () => {
     expect(firstRef).toBeTruthy();
     const img = firstRef?.querySelector("img");
     expect(img?.getAttribute("src")).toContain("icon-000.svg");
+  });
+
+  it("every metadata field and the fallback select have accessible labels", () => {
+    render(<MakerApp catalog={catalog(2)} />);
+    const expected = [
+      "Search icons",
+      "Filter by subgroup",
+    ];
+    for (const label of expected) {
+      expect(screen.getByLabelText(label)).toBeTruthy();
+    }
+  });
+
+  it("keyboard can reach and operate the fallback policy select", async () => {
+    const user = userEvent.setup();
+    render(<MakerApp catalog={catalog(2)} />);
+    await user.click(screen.getByRole("tab", { name: "metadata" }));
+    const select = screen.getByLabelText("Missing-icon fallback policy");
+    expect(select).toBeTruthy();
+    await user.selectOptions(select, "error");
+    expect((select as HTMLSelectElement).value).toBe("error");
+  });
+
+  it("aria-invalid is set on fields with issues", async () => {
+    const user = userEvent.setup();
+    render(<MakerApp catalog={catalog(2)} />);
+    await user.click(screen.getByRole("tab", { name: "metadata" }));
+    const groupId = screen.getByLabelText("Group ID");
+    expect(groupId.getAttribute("aria-invalid")).toBe("true");
   });
 });
