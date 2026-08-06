@@ -96,6 +96,8 @@ export function MakerApp({
         <GroupMetadataForm
           metadata={session.metadata}
           onChange={(patch) => session.setMetadata(patch)}
+          fallbackPolicy={session.fallbackPolicy}
+          onFallbackPolicyChange={(value) => session.setFallbackPolicy(value)}
         />
       )}
 
@@ -105,7 +107,11 @@ export function MakerApp({
           issues={reviewIssues}
           buildStatus={session.buildStatus}
           buildError={session.buildError}
-          onBuild={() => session.build()}
+          buildResult={session.buildResult}
+          partialAcknowledged={session.partialAcknowledged}
+          onPartialAcknowledgedChange={(value) => session.setPartialAcknowledged(value)}
+          onBuild={(signal) => session.build(signal)}
+          onCancel={() => undefined}
         />
       )}
     </div>

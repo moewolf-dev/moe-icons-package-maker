@@ -16,10 +16,13 @@ const initial = {
 
 function Harness() {
   const [metadata, setMetadata] = useState(initial);
+  const [fallbackPolicy, setFallbackPolicy] = useState<"fallback" | "error">("fallback");
   return (
     <GroupMetadataForm
       metadata={metadata}
       onChange={(patch) => setMetadata((prev) => ({ ...prev, ...patch }))}
+      fallbackPolicy={fallbackPolicy}
+      onFallbackPolicyChange={setFallbackPolicy}
     />
   );
 }

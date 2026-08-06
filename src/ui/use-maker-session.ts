@@ -41,15 +41,20 @@ export interface MakerSession {
   readonly progress: ReturnType<typeof getMappingProgress>;
   readonly missing: readonly MappingIssue[];
   readonly dirty: boolean;
-  readonly buildStatus: "idle" | "building" | "success" | "error";
+  readonly buildStatus: "idle" | "building" | "success" | "error" | "cancelled";
   readonly buildError: string | undefined;
+  readonly buildResult: { checksum: string; createdAt: string; files: string[] } | undefined;
+  readonly partialAcknowledged: boolean;
+  readonly fallbackPolicy: "fallback" | "error";
 
   toggleSelect(id: string): void;
   setQuery(query: string): readonly IconDefinition[];
   assignFile(id: string, file: File): Promise<{ ok: boolean; errors: readonly string[] }>;
   removeAssignment(id: string): void;
   setMetadata(patch: Partial<GroupMetadata>): void;
-  build(): Promise<void>;
+  setPartialAcknowledged(value: boolean): void;
+  setFallbackPolicy(value: "fallback" | "error"): void;
+  build(signal?: AbortSignal): Promise<void>;
   reset(): void;
 }
 
@@ -72,6 +77,9 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
   const [dirty, setDirty] = useState(false);
   const [buildStatus, setBuildStatus] = useState<MakerSession["buildStatus"]>("idle");
   const [buildError, setBuildError] = useState<string | undefined>(undefined);
+  const [buildResult, setBuildResult] = useState<MakerSession["buildResult"]>(undefined);
+  const [partialAcknowledged, setPartialAcknowledgedState] = useState(false);
+  const [fallbackPolicy, setFallbackPolicyState] = useState<"fallback" | "error">("fallback");
   const svgCache = useRef(new Map<string, SvgSource>());
   const snapshot = useRef<string>("");
 
@@ -134,68 +142,103 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
     setDirty(true);
   }, []);
 
-  const build = useCallback(async () => {
-    setBuildStatus("building");
-    setBuildError(undefined);
-    const issues = [...validation, ...listMappingIssues(assignments)];
-    const sources: Record<string, string> = {};
-    for (const slot of assignments) {
-      const svg = svgCache.current.get(slot.icon.id);
-      if (svg) sources[slot.icon.id] = svg.text;
-    }
+  const build = useCallback(
+    async (signal?: AbortSignal) => {
+      setBuildStatus("building");
+      setBuildError(undefined);
+      setBuildResult(undefined);
+      const issues = [...validation, ...listMappingIssues(assignments)];
+      const sources: Record<string, string> = {};
+      const sourceChecksums: Record<string, string> = {};
+      for (const slot of assignments) {
+        const svg = svgCache.current.get(slot.icon.id);
+        if (svg) {
+          sources[slot.icon.id] = svg.text;
+          sourceChecksums[slot.icon.id] = await sha256Hex(svg.text);
+        }
+      }
 
-    const plan = planBuild(
-      {
-        groupId: metadata.groupId || "untitled-group",
-        displayName: metadata.displayName || metadata.groupId || "Untitled",
-        styleId: metadata.styleId || "outline",
-        state: assignments,
-        svgBySource: new Map(
-          Object.entries(sources).map(([id, content]) => [
-            id,
-            { content, checksum: "x".repeat(64) },
-          ]),
-        ),
-        validationIssues: issues,
-        createdAt: "2026-08-06T00:00:00.000Z",
-      },
-      { requireZeroErrors: true, allowWarnings: true },
-    );
-
-    if (!plan.ok) {
-      setBuildStatus("error");
-      setBuildError(plan.errors.map((e) => e.message).join("; "));
-      return;
-    }
-
-    const staging: Record<string, string> = {};
-    const writer = {
-      writeFile: (rel: string, content: string | Uint8Array) => {
-        staging[rel] = typeof content === "string" ? content : new TextDecoder().decode(content);
-        return Promise.resolve();
-      },
-      commit: () => Promise.resolve(),
-      rollback: () => Promise.resolve(),
-    };
-
-    try {
-      await materializeBuild(plan.value, writer, {
-        createdWith: "moe-icons-package-maker@0.1.0",
-        author: {
-          name: metadata.author || "anonymous",
-          ...(metadata.email ? { email: metadata.email } : {}),
-          ...(metadata.source ? { source: metadata.source } : {}),
-          ...(metadata.license ? { license: metadata.license } : {}),
+      const plan = planBuild(
+        {
+          groupId: metadata.groupId || "untitled-group",
+          displayName: metadata.displayName || metadata.groupId || "Untitled",
+          styleId: metadata.styleId || "outline",
+          state: assignments,
+          svgBySource: new Map(
+            Object.entries(sources).map(([id, content]) => [
+              id,
+              { content, checksum: sourceChecksums[id] ?? "x".repeat(64) },
+            ]),
+          ),
+          validationIssues: issues,
+          createdAt: "2026-08-06T00:00:00.000Z",
         },
-      });
-      snapshot.current = JSON.stringify({ selectedIds, assignments, metadata });
-      setBuildStatus("success");
-      setDirty(false);
-    } catch (error) {
-      setBuildStatus("error");
-      setBuildError(String(error));
-    }
-  }, [validation, assignments, metadata, selectedIds]);
+        { requireZeroErrors: true, allowWarnings: true },
+      );
+
+      if (signal?.aborted) {
+        setBuildStatus("cancelled");
+        return;
+      }
+
+      if (!plan.ok) {
+        setBuildStatus("error");
+        setBuildError(plan.errors.map((e) => e.message).join("; "));
+        return;
+      }
+
+      const staging: Record<string, string> = {};
+      const writer = {
+        writeFile: (rel: string, content: string | Uint8Array) => {
+          staging[rel] = typeof content === "string" ? content : new TextDecoder().decode(content);
+          return Promise.resolve();
+        },
+        commit: () => Promise.resolve(),
+        rollback: () => Promise.resolve(),
+      };
+
+      try {
+        const result = await materializeBuild(plan.value, writer, {
+          createdWith: "moe-icons-package-maker@0.1.0",
+          author: {
+            name: metadata.author || "anonymous",
+            ...(metadata.email ? { email: metadata.email } : {}),
+            ...(metadata.source ? { source: metadata.source } : {}),
+            ...(metadata.license ? { license: metadata.license } : {}),
+          },
+        });
+        if (signal?.aborted) {
+          setBuildStatus("cancelled");
+          return;
+        }
+        const checksum = await sha256Hex(JSON.stringify(result.files));
+        setBuildResult({
+          checksum,
+          createdAt: plan.value.createdAt,
+          files: Object.keys(result.files),
+        });
+        snapshot.current = JSON.stringify({ selectedIds, assignments, metadata });
+        setBuildStatus("success");
+        setDirty(false);
+      } catch (error) {
+        if (signal?.aborted) {
+          setBuildStatus("cancelled");
+          return;
+        }
+        setBuildStatus("error");
+        setBuildError(String(error));
+      }
+    },
+    [validation, assignments, metadata, selectedIds],
+  );
+
+  const setPartialAcknowledged = useCallback((value: boolean) => {
+    setPartialAcknowledgedState(value);
+  }, []);
+
+  const setFallbackPolicy = useCallback((value: "fallback" | "error") => {
+    setFallbackPolicyState(value);
+  }, []);
 
   const reset = useCallback(() => {
     setSelectedIds([]);
@@ -205,6 +248,9 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
     setDirty(false);
     setBuildStatus("idle");
     setBuildError(undefined);
+    setBuildResult(undefined);
+    setPartialAcknowledgedState(false);
+    setFallbackPolicyState("fallback");
     svgCache.current.clear();
   }, []);
 
@@ -225,12 +271,23 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
     dirty,
     buildStatus,
     buildError,
+    buildResult,
+    partialAcknowledged,
+    fallbackPolicy,
     toggleSelect,
     setQuery,
     assignFile,
     removeAssignment,
     setMetadata,
+    setPartialAcknowledged,
+    setFallbackPolicy,
     build,
     reset,
   };
+}
+
+async function sha256Hex(input: string): Promise<string> {
+  const bytes = new TextEncoder().encode(input);
+  const digest = await crypto.subtle.digest("SHA-256", bytes as unknown as BufferSource);
+  return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("");
 }

@@ -9,6 +9,8 @@ const RE_GROUP_ID = /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/;
 export function GroupMetadataForm({
   metadata,
   onChange,
+  fallbackPolicy,
+  onFallbackPolicyChange,
 }: {
   metadata: {
     groupId: string;
@@ -20,6 +22,8 @@ export function GroupMetadataForm({
     license: string;
   };
   onChange: (patch: Partial<typeof metadata>) => void;
+  fallbackPolicy: "fallback" | "error";
+  onFallbackPolicyChange: (value: "fallback" | "error") => void;
 }) {
   const issues = useMemo(() => {
     const list: { field: string; code: string; message: string }[] = [];
@@ -118,6 +122,17 @@ export function GroupMetadataForm({
           aria-label="License"
           onChange={(e) => onChange({ license: e.target.value })}
         />
+      </label>
+      <label>
+        <span>Missing-icon fallback policy</span>
+        <select
+          aria-label="Missing-icon fallback policy"
+          value={fallbackPolicy}
+          onChange={(e) => onFallbackPolicyChange(e.target.value as "fallback" | "error")}
+        >
+          <option value="fallback">fallback (deterministic)</option>
+          <option value="error">error (block export)</option>
+        </select>
       </label>
     </form>
   );

@@ -3,35 +3,57 @@ import { useRef, useState } from "react";
 /**
  * BuildReviewPanel derives filters/counters from getMappingProgress-style
  * counts, blocks on errors, requires explicit confirmation for warnings, and
- * calls build exactly once per confirmed build.
+ * calls build exactly once per confirmed build. Supports partial-group
+ * acknowledgment, AbortSignal cancellation, and shows the final checksum.
  */
 export function BuildReviewPanel({
   counts,
   issues,
   buildStatus,
   buildError,
+  buildResult,
+  partialAcknowledged,
+  onPartialAcknowledgedChange,
   onBuild,
+  onCancel,
 }: {
   counts: { selected: number; filled: number; missing: number; warnings: number; errors: number };
   issues: readonly { code: string; severity: string; message: string }[];
-  buildStatus: "idle" | "building" | "success" | "error";
+  buildStatus: "idle" | "building" | "success" | "error" | "cancelled";
   buildError: string | undefined;
-  onBuild: () => Promise<void>;
+  buildResult: { checksum: string; createdAt: string; files: string[] } | undefined;
+  partialAcknowledged: boolean;
+  onPartialAcknowledgedChange: (value: boolean) => void;
+  onBuild: (signal?: AbortSignal) => Promise<void>;
+  onCancel: () => void;
 }) {
   const [warningsConfirmed, setWarningsConfirmed] = useState(false);
   const buildingRef = useRef(false);
+  const abortRef = useRef<AbortController | undefined>(undefined);
   const hasErrors = counts.errors > 0;
   const hasWarnings = counts.warnings > 0;
-  const blocked = hasErrors || (hasWarnings && !warningsConfirmed);
+  const isPartial = counts.missing > 0;
+  const blocked =
+    hasErrors ||
+    (hasWarnings && !warningsConfirmed) ||
+    (isPartial && !partialAcknowledged);
 
   const buildRequested = async () => {
     if (blocked || buildStatus === "building" || buildingRef.current) return;
     buildingRef.current = true;
+    const controller = new AbortController();
+    abortRef.current = controller;
     try {
-      await onBuild();
+      await onBuild(controller.signal);
     } finally {
       buildingRef.current = false;
+      abortRef.current = undefined;
     }
+  };
+
+  const cancelRequested = () => {
+    abortRef.current?.abort();
+    onCancel();
   };
 
   return (
@@ -80,18 +102,44 @@ export function BuildReviewPanel({
           I understand the warnings and want to export anyway.
         </label>
       )}
+      {isPartial && !partialAcknowledged && (
+        <label className="partial-confirmation" data-testid="partial-confirmation">
+          <input
+            type="checkbox"
+            checked={partialAcknowledged}
+            onChange={(e) => onPartialAcknowledgedChange(e.target.checked)}
+          />
+          This group is partial ({counts.missing} missing). I acknowledge it exports only the
+          filled icons.
+        </label>
+      )}
 
-      {buildStatus === "success" && <p role="status">Build succeeded.</p>}
+      {buildStatus === "success" && buildResult && (
+        <div className="build-result" data-testid="build-result">
+          <p role="status">Build succeeded.</p>
+          <p>
+            Checksum: <code data-testid="build-checksum">{buildResult.checksum}</code>
+          </p>
+          <p>Files: {buildResult.files.length}</p>
+        </div>
+      )}
       {buildStatus === "error" && buildError && <p role="alert">{buildError}</p>}
+      {buildStatus === "cancelled" && <p role="status">Build cancelled.</p>}
 
-      <button
-        type="button"
-        disabled={blocked || buildStatus === "building"}
-        onClick={() => void buildRequested()}
-        data-testid="build-button"
-      >
-        {buildStatus === "building" ? "Building..." : "Build group"}
-      </button>
+      {buildStatus === "building" ? (
+        <button type="button" onClick={cancelRequested} data-testid="cancel-button">
+          Cancel build
+        </button>
+      ) : (
+        <button
+          type="button"
+          disabled={blocked}
+          onClick={() => void buildRequested()}
+          data-testid="build-button"
+        >
+          Build group
+        </button>
+      )}
     </section>
   );
 }
