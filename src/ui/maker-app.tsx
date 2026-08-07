@@ -7,6 +7,11 @@ import { GroupMetadataForm } from "./components/group-metadata-form";
 import { BuildReviewPanel } from "./components/build-review-panel";
 import { UnsavedChangesGuard } from "./components/unsaved-changes-guard";
 import type { ReferencePreviewState } from "./reference-preview";
+import {
+  deriveIconSlotViewModels,
+  filterByStatuses,
+  type IconSlotStatus,
+} from "./icon-view-model";
 
 /**
  * MakerApp accepts injected catalog and adapters so the website can import it
@@ -24,12 +29,22 @@ export function MakerApp({
   const session = useMakerSession(catalog);
   const [query, setQuery] = useState("");
   const [subgroup, setSubgroup] = useState<string | undefined>(undefined);
+  const [statuses, setStatuses] = useState<readonly IconSlotStatus[]>([]);
   const [activeTab, setActiveTab] = useState<"catalog" | "metadata" | "review">("catalog");
+  const [focusIconId, setFocusIconId] = useState<string | undefined>(undefined);
+
+  const viewModels = useMemo(
+    () => deriveIconSlotViewModels(catalog, session.assignments, session.validationByIcon),
+    [catalog, session.assignments, session.validationByIcon],
+  );
 
   const filtered = useMemo(() => {
     const results = session.setQuery(query);
-    return subgroup ? results.filter((icon) => icon.subgroupId === subgroup) : results;
-  }, [query, subgroup, session]);
+    let models = viewModels.filter((vm) => results.includes(vm.icon));
+    models = filterByStatuses(models, statuses);
+    if (subgroup) models = models.filter((vm) => vm.icon.subgroupId === subgroup);
+    return models.map((vm) => vm.icon);
+  }, [query, subgroup, statuses, session, viewModels]);
 
   const assignmentMap = useMemo(() => {
     const map = new Map<string, { source: string | undefined; previewUrl?: string }>();
@@ -44,19 +59,23 @@ export function MakerApp({
   }, [session.assignments, session.previewUrls]);
 
   const reviewIssues = useMemo(() => {
-    return [
-      ...session.validation.map((v) => ({
-        code: v.code,
-        severity: v.severity,
-        message: v.message,
-      })),
-      ...session.missing.map((m) => ({
-        code: m.code,
-        severity: m.severity,
-        message: m.message,
-      })),
-    ];
+    const items: { code: string; severity: string; message: string; iconId?: string }[] = [];
+    for (const v of session.validation) {
+      items.push({ code: v.code, severity: v.severity, message: v.message, ...(v.iconId ? { iconId: v.iconId } : {}) });
+    }
+    for (const m of session.missing) {
+      items.push({ code: m.code, severity: m.severity, message: m.message, ...(m.iconId ? { iconId: m.iconId } : {}) });
+    }
+    return items;
   }, [session.validation, session.missing]);
+
+  const goToIcon = (iconId: string) => {
+    setQuery("");
+    setSubgroup(undefined);
+    setStatuses([]);
+    setFocusIconId(iconId);
+    setActiveTab("catalog");
+  };
 
   return (
     <div className="maker-app" data-testid="maker-app">
@@ -100,16 +119,21 @@ export function MakerApp({
             onSearch={setQuery}
             subgroup={subgroup}
             onSubgroupChange={setSubgroup}
+            statuses={statuses}
+            onStatusesChange={(next) => setStatuses(next)}
           />
           <VirtualizedIconGrid
             icons={filtered}
             assignments={assignmentMap}
             referencePreview={referencePreview}
+            {...(focusIconId ? { focusIconId } : {})}
+            onFocusConsumed={() => setFocusIconId(undefined)}
             onChoose={async (id, file) => {
               const result = await session.assignFile(id, file);
               return { ok: result.ok, errors: result.errors };
             }}
             onRemove={(id) => session.removeAssignment(id)}
+            onRemoveSlot={(id) => session.removeSlot(id)}
           />
         </>
       )}
@@ -134,6 +158,7 @@ export function MakerApp({
           onPartialAcknowledgedChange={(value) => session.setPartialAcknowledged(value)}
           onBuild={(signal) => session.build(signal)}
           onCancel={() => undefined}
+          onGoToIcon={goToIcon}
         />
       )}
     </div>

@@ -14,13 +14,19 @@ export function VirtualizedIconGrid({
   assignments,
   onChoose,
   onRemove,
+  onRemoveSlot,
   referencePreview,
+  focusIconId,
+  onFocusConsumed,
 }: {
   icons: readonly IconDefinition[];
   assignments: ReadonlyMap<string, { source: string | undefined; previewUrl?: string }>;
   onChoose: (id: string, file: File) => Promise<{ ok: boolean; errors: readonly string[] }>;
   onRemove: (id: string) => void;
+  onRemoveSlot?: (id: string) => void;
   referencePreview?: ((iconId: string) => string | undefined) | undefined;
+  focusIconId?: string;
+  onFocusConsumed?: () => void;
 }) {
   const [scrollTop, setScrollTop] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(600);
@@ -34,6 +40,25 @@ export function VirtualizedIconGrid({
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
   }, []);
+
+  // Scroll the focused icon into view (including when it is not yet mounted).
+  useEffect(() => {
+    if (!focusIconId) return;
+    const index = icons.findIndex((icon) => icon.id === focusIconId);
+    if (index === -1) return;
+    const target = index * ROW_HEIGHT;
+    setScrollTop(Math.max(0, target - ROW_HEIGHT));
+  }, [focusIconId, icons]);
+
+  // Focus the card once it is mounted after scrolling.
+  useEffect(() => {
+    if (!focusIconId) return;
+    const el = document.querySelector<HTMLElement>(`[data-testid="icon-card-${focusIconId}"]`);
+    if (!el) return;
+    const focusable = el.querySelector<HTMLElement>("button, input, [tabindex]");
+    focusable?.focus();
+    onFocusConsumed?.();
+  }, [focusIconId, onFocusConsumed, scrollTop]);
 
   const start = Math.max(0, Math.floor(scrollTop / ROW_HEIGHT) - OVERSCAN);
   const end = Math.min(
@@ -71,6 +96,7 @@ export function VirtualizedIconGrid({
                 referencePreview={referencePreview?.(icon.id)}
                 onChoose={(file) => onChoose(icon.id, file)}
                 onRemove={() => onRemove(icon.id)}
+                {...(onRemoveSlot ? { onRemoveSlot: () => onRemoveSlot(icon.id) } : {})}
               />            </div>
           );
         })}

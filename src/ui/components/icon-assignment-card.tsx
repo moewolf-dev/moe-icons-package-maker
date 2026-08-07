@@ -13,12 +13,14 @@ export function IconAssignmentCard({
   referencePreview,
   onChoose,
   onRemove,
+  onRemoveSlot,
 }: {
   icon: IconDefinition;
   assignment: { source: string | undefined; previewUrl?: string } | undefined;
   referencePreview?: string | undefined;
   onChoose: (file: File) => Promise<{ ok: boolean; errors: readonly string[] }>;
   onRemove: () => void;
+  onRemoveSlot?: () => void;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [pending, setPending] = useState(false);
@@ -107,6 +109,11 @@ export function IconAssignmentCard({
         {filled && (
           <button type="button" className="secondary" onClick={onRemove} aria-label={`Remove ${icon.id}`}>
             Remove
+          </button>
+        )}
+        {onRemoveSlot && (
+          <button type="button" className="danger" onClick={onRemoveSlot} aria-label={`Remove from group ${icon.id}`}>
+            Remove from group
           </button>
         )}
       </div>

@@ -16,9 +16,10 @@ export function BuildReviewPanel({
   onPartialAcknowledgedChange,
   onBuild,
   onCancel,
+  onGoToIcon,
 }: {
   counts: { selected: number; filled: number; missing: number; warnings: number; errors: number };
-  issues: readonly { code: string; severity: string; message: string }[];
+  issues: readonly { code: string; severity: string; message: string; iconId?: string }[];
   buildStatus: "idle" | "building" | "success" | "error" | "cancelled";
   buildError: string | undefined;
   buildResult: { checksum: string; createdAt: string; files: string[] } | undefined;
@@ -26,6 +27,7 @@ export function BuildReviewPanel({
   onPartialAcknowledgedChange: (value: boolean) => void;
   onBuild: (signal?: AbortSignal) => Promise<void>;
   onCancel: () => void;
+  onGoToIcon?: (iconId: string) => void;
 }) {
   const [warningsConfirmed, setWarningsConfirmed] = useState(false);
   const buildingRef = useRef(false);
@@ -86,6 +88,16 @@ export function BuildReviewPanel({
           {issues.slice(0, 20).map((issue, i) => (
             <li key={`${issue.code}-${i}`} data-severity={issue.severity}>
               {issue.severity} {issue.code}: {issue.message}
+              {issue.iconId && onGoToIcon && (
+                <button
+                  type="button"
+                  className="go-to-icon"
+                  onClick={() => onGoToIcon(issue.iconId as string)}
+                  aria-label={`Go to icon ${issue.iconId}`}
+                >
+                  Go to icon
+                </button>
+              )}
             </li>
           ))}
         </ul>

@@ -30,6 +30,8 @@ export interface ValidationIssue {
   readonly severity: "error" | "warning";
   readonly message: string;
   readonly path?: string;
+  /** Canonical icon id this issue belongs to (set by the session layer). */
+  readonly iconId?: string;
 }
 
 export type ParseResult =

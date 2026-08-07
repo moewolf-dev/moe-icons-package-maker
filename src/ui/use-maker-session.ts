@@ -39,6 +39,8 @@ export interface MakerSession {
   readonly previewUrls: ReadonlyMap<string, string>;
   readonly metadata: GroupMetadata;
   readonly validation: readonly ValidationIssue[];
+  /** Validation issues keyed by icon id; independent per icon. */
+  readonly validationByIcon: ReadonlyMap<string, readonly ValidationIssue[]>;
   readonly progress: ReturnType<typeof getMappingProgress>;
   readonly missing: readonly MappingIssue[];
   readonly dirty: boolean;
@@ -52,6 +54,8 @@ export interface MakerSession {
   setQuery(query: string): readonly IconDefinition[];
   assignFile(id: string, file: File): Promise<{ ok: boolean; errors: readonly string[] }>;
   removeAssignment(id: string): void;
+  /** Remove the whole slot: assignment, selection, SVG cache, preview, validation. */
+  removeSlot(id: string): void;
   setMetadata(patch: Partial<GroupMetadata>): void;
   setPartialAcknowledged(value: boolean): void;
   setFallbackPolicy(value: "fallback" | "error"): void;
@@ -75,7 +79,7 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
   const [assignments, setAssignments] = useState<MappingState>([]);
   const [previewUrls, setPreviewUrls] = useState<ReadonlyMap<string, string>>(new Map());
   const [metadata, setMetadataState] = useState<GroupMetadata>(EMPTY_METADATA);
-  const [validation, setValidation] = useState<readonly ValidationIssue[]>([]);
+  const [validationByIcon, setValidationByIcon] = useState<ReadonlyMap<string, readonly ValidationIssue[]>>(new Map());
   const [dirty, setDirty] = useState(false);
   const [buildStatus, setBuildStatus] = useState<MakerSession["buildStatus"]>("idle");
   const [buildError, setBuildError] = useState<string | undefined>(undefined);
@@ -117,15 +121,28 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
       const issues = [
         ...validateSvgStructure(parsed.value),
         ...validateSvgGeometry(parsed.value),
-      ];
-      setValidation(issues);
+      ].map((issue) => ({ ...issue, iconId: id }));
+      setValidationByIcon((prev) => {
+        const next = new Map(prev);
+        next.set(id, issues);
+        return next;
+      });
       svgCache.current.set(id, read.value);
 
       let baseState = assignments;
       if (!baseState.some((slot) => slot.icon.id === id)) {
         const created = createMappingState(catalog, [...selectedIds, id]);
         if (!created.ok) return { ok: false, errors: created.errors.map((e) => e.message) };
-        baseState = created.value;
+        // Preserve existing assignments when extending the selection: the fresh
+        // slots are empty, so carry over prior assigned sources by id.
+        const prior = new Map(
+          assignments.map((slot) => [slot.icon.id, slot.assignedSource] as const),
+        );
+        baseState = created.value.map((slot) =>
+          prior.has(slot.icon.id)
+            ? { ...slot, assignedSource: prior.get(slot.icon.id) }
+            : slot,
+        );
         setSelectedIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
       }
 
@@ -161,8 +178,31 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
       next.delete(id);
       return next;
     });
+    setValidationByIcon((prev) => {
+      if (!prev.has(id)) return prev;
+      const next = new Map(prev);
+      next.delete(id);
+      return next;
+    });
     setDirty(true);
   }, []);
+
+  const removeSlot = useCallback(
+    (id: string) => {
+      removeAssignment(id);
+      setSelectedIds((prev) => {
+        if (!prev.includes(id)) return prev;
+        const next = prev.filter((x) => x !== id);
+        const state = createMappingState(catalog, next);
+        if (state.ok) {
+          setAssignments(state.value);
+          setDirty(true);
+        }
+        return next;
+      });
+    },
+    [catalog, removeAssignment],
+  );
 
   const setMetadata = useCallback((patch: Partial<GroupMetadata>) => {
     setMetadataState((prev) => ({ ...prev, ...patch }));
@@ -174,7 +214,10 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
       setBuildStatus("building");
       setBuildError(undefined);
       setBuildResult(undefined);
-      const issues = [...validation, ...listMappingIssues(assignments)];
+      const issues = [
+        ...Array.from(validationByIcon.values()).flat(),
+        ...listMappingIssues(assignments),
+      ];
       const sources: Record<string, string> = {};
       const sourceChecksums: Record<string, string> = {};
       for (const slot of assignments) {
@@ -256,7 +299,7 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
         setBuildError(String(error));
       }
     },
-    [validation, assignments, metadata, selectedIds],
+    [validationByIcon, assignments, metadata, selectedIds],
   );
 
   const setPartialAcknowledged = useCallback((value: boolean) => {
@@ -279,7 +322,7 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
       return new Map();
     });
     setMetadataState(EMPTY_METADATA);
-    setValidation([]);
+    setValidationByIcon(new Map());
     setDirty(false);
     setBuildStatus("idle");
     setBuildError(undefined);
@@ -293,6 +336,7 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
   const missing = listMappingIssues(assignments).filter(
     (issue) => issue.code === "MISSING_ICON",
   );
+  const validation = Array.from(validationByIcon.values()).flat();
 
   return {
     catalog,
@@ -302,6 +346,7 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
     previewUrls,
     metadata,
     validation,
+    validationByIcon,
     progress,
     missing,
     dirty,
@@ -314,6 +359,7 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
     setQuery,
     assignFile,
     removeAssignment,
+    removeSlot,
     setMetadata,
     setPartialAcknowledged,
     setFallbackPolicy,
