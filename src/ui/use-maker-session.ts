@@ -31,6 +31,7 @@ export interface GroupMetadata {
   email: string;
   source: string;
   license: string;
+  licenseOther?: string;
 }
 
 export interface MakerSession {

@@ -83,6 +83,7 @@ input, select { width: 100%; border: 1px solid #d8cde4; background: white; color
 
 .group-metadata-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1.25rem; border-radius: 14px; }
 .field-issue, [role="alert"], .review-block { color: #b12d45; font-size: .75rem; }
+.manifest-note { grid-column: 1 / -1; margin: 0; padding: .6rem .8rem; border: 1px solid #e1d8ea; border-radius: 8px; background: #f8f5fb; color: #6f6679; font-size: .75rem; }
 .build-review-panel { padding: 1.25rem; border-radius: 14px; }
 .build-review-panel dl { display: grid; grid-template-columns: repeat(5, 1fr); gap: .75rem; margin: 0 0 1rem; }
 .build-review-panel dl div { padding: .8rem; border-radius: 10px; background: #f5f0f9; }
