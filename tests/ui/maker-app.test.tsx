@@ -40,4 +40,19 @@ describe("MakerApp", () => {
     const chooseBtn = firstCard?.querySelector("button");
     expect(chooseBtn).toBeTruthy();
   });
+
+  it("lets an unselected catalog slot accept and preview a valid SVG", async () => {
+    const user = userEvent.setup();
+    render(<MakerApp catalog={catalog(2)} />);
+    const hiddenInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+    const file = new File(
+      ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 2h20v20H2z"/></svg>'],
+      "custom.svg",
+      { type: "image/svg+xml" },
+    );
+    await user.upload(hiddenInput, file);
+    expect(await screen.findByTestId("status-icon-000")).toHaveTextContent("custom.svg");
+    expect(document.querySelector(".progress-strip")?.textContent).toContain("1 selected");
+    expect(document.querySelector(".progress-strip")?.textContent).toContain("1 filled");
+  });
 });

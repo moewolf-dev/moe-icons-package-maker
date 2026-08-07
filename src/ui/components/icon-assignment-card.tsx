@@ -14,12 +14,13 @@ export function IconAssignmentCard({
   onRemove,
 }: {
   icon: IconDefinition;
-  assignment: { source: string | undefined } | undefined;
+  assignment: { source: string | undefined; previewUrl?: string } | undefined;
   referencePreview?: string | undefined;
   onChoose: (file: File) => Promise<{ ok: boolean; errors: readonly string[] }>;
   onRemove: () => void;
 }) {
-  const inputRef = useRef<HTMLInputElement>(null);  const [pending, setPending] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | undefined>(undefined);
   const [dropActive, setDropActive] = useState(false);
 
@@ -30,10 +31,15 @@ export function IconAssignmentCard({
     if (!file) return;
     setPending(true);
     setError(undefined);
-    const result = await onChoose(file);
-    setPending(false);
-    if (!result.ok && result.errors.length > 0) {
-      setError(result.errors[0]);
+    try {
+      const result = await onChoose(file);
+      if (!result.ok && result.errors.length > 0) {
+        setError(result.errors[0]);
+      }
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Unable to read this file");
+    } finally {
+      setPending(false);
     }
   };
 
@@ -52,17 +58,21 @@ export function IconAssignmentCard({
         void handleFile(e.dataTransfer.files[0]);
       }}
     >
-      <span className="icon-card-name">{icon.id}</span>
-      <span className="icon-card-subgroup">{icon.subgroupId}</span>
-      {referencePreview && (
-        <span
-          className="icon-card-reference"
-          data-testid={`reference-${icon.id}`}
-          aria-label={`Reference preview for ${icon.id}`}
-        >
-          <img src={referencePreview} alt="" />
+      <div className="icon-card-copy">
+        <span className="icon-card-name">{icon.label}</span>
+        <code>{icon.id}</code>
+        <span className="icon-card-subgroup">{icon.subgroupId}</span>
+      </div>
+      <div className="icon-card-previews">
+        <span className="preview-tile" data-testid={`reference-${icon.id}`} aria-label={`Reference preview for ${icon.id}`}>
+          <small>Official</small>
+          {referencePreview ? <img src={referencePreview} alt="" /> : <span aria-hidden="true">—</span>}
         </span>
-      )}
+        <span className={`preview-tile ${filled ? "has-image" : ""}`}>
+          <small>Your SVG</small>
+          {assignment?.previewUrl ? <img src={assignment.previewUrl} alt="" /> : <span aria-hidden="true">+</span>}
+        </span>
+      </div>
       {filled ? (
         <span className="icon-card-status" data-testid={`status-${icon.id}`}>
           {source}
@@ -77,23 +87,21 @@ export function IconAssignmentCard({
           {error}
         </span>
       )}
-      <button
-        type="button"
-        onClick={() => inputRef.current?.click()}
-        disabled={pending}
-        aria-label={`Choose SVG for ${icon.id}`}
-      >
-        {filled ? "Replace" : "Choose"}
-      </button>
-      {filled && (
+      <div className="icon-card-actions">
         <button
           type="button"
-          onClick={onRemove}
-          aria-label={`Remove ${icon.id}`}
+          onClick={() => inputRef.current?.click()}
+          disabled={pending}
+          aria-label={`Choose SVG for ${icon.id}`}
         >
-          Remove
+          {pending ? "Checking…" : filled ? "Replace" : "Choose SVG"}
         </button>
-      )}
+        {filled && (
+          <button type="button" className="secondary" onClick={onRemove} aria-label={`Remove ${icon.id}`}>
+            Remove
+          </button>
+        )}
+      </div>
       <input
         ref={inputRef}
         type="file"

@@ -36,6 +36,7 @@ export interface MakerSession {
   readonly index: CatalogIndex;
   readonly selectedIds: readonly string[];
   readonly assignments: MappingState;
+  readonly previewUrls: ReadonlyMap<string, string>;
   readonly metadata: GroupMetadata;
   readonly validation: readonly ValidationIssue[];
   readonly progress: ReturnType<typeof getMappingProgress>;
@@ -72,6 +73,7 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
   const index = useMemo(() => indexIconCatalog(catalog), [catalog]);
   const [selectedIds, setSelectedIds] = useState<readonly string[]>([]);
   const [assignments, setAssignments] = useState<MappingState>([]);
+  const [previewUrls, setPreviewUrls] = useState<ReadonlyMap<string, string>>(new Map());
   const [metadata, setMetadataState] = useState<GroupMetadata>(EMPTY_METADATA);
   const [validation, setValidation] = useState<readonly ValidationIssue[]>([]);
   const [dirty, setDirty] = useState(false);
@@ -102,7 +104,7 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
 
   const assignFile = useCallback(
     async (id: string, file: File): Promise<{ ok: boolean; errors: readonly string[] }> => {
-      const read = await readSvgInput(await file.arrayBuffer(), {
+      const read = await readSvgInput(await readFileBuffer(file), {
         maxBytes: 2 * 1024 * 1024,
         allowedMimeTypes: ["image/svg+xml", "text/xml", "application/xml", ""],
         allowedExtensions: [".svg", ".xml"],
@@ -119,13 +121,29 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
       setValidation(issues);
       svgCache.current.set(id, read.value);
 
-      const result = assignSvg(assignments, id, read.value);
+      let baseState = assignments;
+      if (!baseState.some((slot) => slot.icon.id === id)) {
+        const created = createMappingState(catalog, [...selectedIds, id]);
+        if (!created.ok) return { ok: false, errors: created.errors.map((e) => e.message) };
+        baseState = created.value;
+        setSelectedIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
+      }
+
+      const result = assignSvg(baseState, id, read.value);
       if (!result.ok) return { ok: false, errors: result.errors.map((e) => e.message) };
       setAssignments(result.value);
+      setPreviewUrls((prev) => {
+        const next = new Map(prev);
+        const previewUrl = typeof URL.createObjectURL === "function"
+          ? URL.createObjectURL(file)
+          : `data:image/svg+xml;charset=utf-8,${encodeURIComponent(read.value.text)}`;
+        next.set(id, previewUrl);
+        return next;
+      });
       setDirty(true);
       return { ok: true, errors: [] };
     },
-    [assignments],
+    [assignments, catalog, selectedIds],
   );
 
   const removeAssignment = useCallback((id: string) => {
@@ -134,6 +152,15 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
       return result.ok ? result.value : prev;
     });
     svgCache.current.delete(id);
+    setPreviewUrls((prev) => {
+      const next = new Map(prev);
+      const url = next.get(id);
+      if (url?.startsWith("blob:") && typeof URL.revokeObjectURL === "function") {
+        URL.revokeObjectURL(url);
+      }
+      next.delete(id);
+      return next;
+    });
     setDirty(true);
   }, []);
 
@@ -243,6 +270,14 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
   const reset = useCallback(() => {
     setSelectedIds([]);
     setAssignments([]);
+    setPreviewUrls((prev) => {
+      if (typeof URL.revokeObjectURL === "function") {
+        for (const url of prev.values()) {
+          if (url.startsWith("blob:")) URL.revokeObjectURL(url);
+        }
+      }
+      return new Map();
+    });
     setMetadataState(EMPTY_METADATA);
     setValidation([]);
     setDirty(false);
@@ -264,6 +299,7 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
     index,
     selectedIds,
     assignments,
+    previewUrls,
     metadata,
     validation,
     progress,
@@ -290,4 +326,17 @@ async function sha256Hex(input: string): Promise<string> {
   const bytes = new TextEncoder().encode(input);
   const digest = await crypto.subtle.digest("SHA-256", bytes as unknown as BufferSource);
   return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+async function readFileBuffer(file: File): Promise<ArrayBuffer> {
+  if (typeof file.arrayBuffer === "function") return file.arrayBuffer();
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(reader.error ?? new Error("failed to read file"));
+    reader.onload = () => {
+      if (reader.result instanceof ArrayBuffer) resolve(reader.result);
+      else reject(new Error("file reader returned an unsupported result"));
+    };
+    reader.readAsArrayBuffer(file);
+  });
 }

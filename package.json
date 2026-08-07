@@ -35,13 +35,14 @@
     "LICENSE"
   ],
   "scripts": {
+    "dev": "vite",
     "build": "tsc -p tsconfig.build.json",
     "prepare": "npm run build",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint src --ext .ts,.tsx",
     "test": "vitest run",
     "test:watch": "vitest",
-    "ui:dev": "vite",
+    "ui:dev": "npm run dev",
     "ui:build": "vite build",
     "ui:preview": "vite preview",
     "serve": "vite-node src/cli/serve-bin.ts",

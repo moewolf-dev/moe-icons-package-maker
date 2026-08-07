@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { IconDefinition } from "../../contracts/types";
 import { IconAssignmentCard } from "./icon-assignment-card";
 
-const ROW_HEIGHT = 72;
+const ROW_HEIGHT = 184;
 const OVERSCAN = 4;
 
 /**
@@ -17,7 +17,7 @@ export function VirtualizedIconGrid({
   referencePreview,
 }: {
   icons: readonly IconDefinition[];
-  assignments: ReadonlyMap<string, { source: string | undefined }>;
+  assignments: ReadonlyMap<string, { source: string | undefined; previewUrl?: string }>;
   onChoose: (id: string, file: File) => Promise<{ ok: boolean; errors: readonly string[] }>;
   onRemove: (id: string) => void;
   referencePreview?: ((iconId: string) => string | undefined) | undefined;

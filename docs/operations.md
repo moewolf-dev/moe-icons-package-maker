@@ -19,7 +19,8 @@ npm run typecheck
 npm run lint
 npm test
 npm run build
-npm run ui:dev        # local UI at http://127.0.0.1:4173
+npm run dev           # primary local UI at http://127.0.0.1:4173
+npm run ui:dev        # compatibility alias for npm run dev
 npm run ui:build      # production UI to dist-ui/
 ```
 

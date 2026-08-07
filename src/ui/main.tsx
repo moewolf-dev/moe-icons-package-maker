@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { MakerApp } from "./maker-app";
 import { parseIconCatalog } from "../catalog/catalog";
 import catalogJson from "../../data/icon-catalog.json";
+import "./styles.css";
 
 const parsed = parseIconCatalog(catalogJson);
 if (!parsed.ok) {
@@ -11,6 +12,9 @@ if (!parsed.ok) {
 
 createRoot(document.getElementById("root") as HTMLElement).render(
   <StrictMode>
-    <MakerApp catalog={parsed.value} />
+    <MakerApp
+      catalog={parsed.value}
+      referencePreview={(iconId) => `/reference-icons/${iconId}.svg`}
+    />
   </StrictMode>,
 );

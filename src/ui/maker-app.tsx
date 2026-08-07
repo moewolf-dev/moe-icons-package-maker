@@ -29,12 +29,16 @@ export function MakerApp({
   }, [query, subgroup, session]);
 
   const assignmentMap = useMemo(() => {
-    const map = new Map<string, { source: string | undefined }>();
+    const map = new Map<string, { source: string | undefined; previewUrl?: string }>();
     for (const slot of session.assignments) {
-      map.set(slot.icon.id, { source: slot.assignedSource });
+      const previewUrl = session.previewUrls.get(slot.icon.id);
+      map.set(slot.icon.id, {
+        source: slot.assignedSource,
+        ...(previewUrl ? { previewUrl } : {}),
+      });
     }
     return map;
-  }, [session.assignments]);
+  }, [session.assignments, session.previewUrls]);
 
   const reviewIssues = useMemo(() => {
     return [
@@ -55,7 +59,11 @@ export function MakerApp({
     <div className="maker-app" data-testid="maker-app">
       <UnsavedChangesGuard dirty={session.dirty} />
       <header>
-        <h1>Icon Group Builder</h1>
+        <div>
+          <p className="eyebrow">Moe Icons · Local workspace</p>
+          <h1>Icon Group Builder</h1>
+          <p className="intro">Match your SVGs to canonical icon names, validate them, and export a style group.</p>
+        </div>
         <nav role="tablist" aria-label="Builder steps">
           {(["catalog", "metadata", "review"] as const).map((tab) => (
             <button
@@ -73,6 +81,11 @@ export function MakerApp({
 
       {activeTab === "catalog" && (
         <>
+          <div className="progress-strip" role="status" aria-live="polite">
+            <span><strong>{filtered.length}</strong> shown</span>
+            <span><strong>{session.progress.selected}</strong> selected</span>
+            <span><strong>{session.progress.filled}</strong> filled</span>
+          </div>
           <CatalogFilters
             catalog={catalog}
             onSearch={setQuery}
