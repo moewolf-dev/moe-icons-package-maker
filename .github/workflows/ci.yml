@@ -27,11 +27,11 @@ jobs:
       - run: npm run ui:build
       # The reconcile check cross-validates the catalog against the official
       # SVG source directory in moe-icons-code-library, which is a separate
-      # repository. Check it out read-only into the path the script expects so
-      # the check runs on real source files instead of failing on a missing dir.
+      # repository. Check it out read-only into the workspace so the check runs
+      # on real source files instead of failing on a missing dir.
       - uses: actions/checkout@v4
         with:
           repository: moewolf-dev/moe-icons-code-library
           ref: branch-1017-key
-          path: ../moe-icons-code-library
-      - run: npx vite-node src/catalog/reconcile.ts data/icon-catalog.json ../moe-icons-code-library/icons
+          path: vendor/moe-icons-code-library
+      - run: npx vite-node src/catalog/reconcile.ts data/icon-catalog.json vendor/moe-icons-code-library/icons
