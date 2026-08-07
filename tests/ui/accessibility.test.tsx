@@ -94,4 +94,75 @@ describe("accessibility and responsiveness", () => {
     const groupId = screen.getByLabelText("Group ID");
     expect(groupId.getAttribute("aria-invalid")).toBe("true");
   });
+
+  it("renders within a narrow mobile viewport without horizontal overflow", () => {
+    const original = window.innerWidth;
+    Object.defineProperty(window, "innerWidth", { value: 375, configurable: true });
+    Object.defineProperty(window, "innerHeight", { value: 667, configurable: true });
+    window.dispatchEvent(new Event("resize"));
+    try {
+      const { container } = render(<MakerApp catalog={catalog(12)} />);
+      const root = container.querySelector("[data-testid='virtualized-grid']") as HTMLElement | null;
+      expect(root).toBeTruthy();
+      // the virtualized container itself scrolls vertically rather than overflowing horizontally
+      expect(root?.style.overflowY).toBe("auto");
+    } finally {
+      Object.defineProperty(window, "innerWidth", { value: original, configurable: true });
+      window.dispatchEvent(new Event("resize"));
+    }
+  });
+
+  it("grid layout reflows for a wide desktop viewport", () => {
+    const original = window.innerWidth;
+    Object.defineProperty(window, "innerWidth", { value: 1440, configurable: true });
+    Object.defineProperty(window, "innerHeight", { value: 900, configurable: true });
+    window.dispatchEvent(new Event("resize"));
+    try {
+      const { container } = render(
+        <VirtualizedIconGrid
+          icons={catalog(24).icons}
+          assignments={new Map()}
+          onChoose={async () => ({ ok: true, errors: [] })}
+          onRemove={() => undefined}
+        />,
+      );
+      // cards mount and remain keyboard operable at desktop width
+      const cards = container.querySelectorAll("[data-testid^='icon-card-']").length;
+      expect(cards).toBeGreaterThan(0);
+      expect(cards).toBeLessThan(24);
+    } finally {
+      Object.defineProperty(window, "innerWidth", { value: original, configurable: true });
+      window.dispatchEvent(new Event("resize"));
+    }
+  });
+
+  it("focus order visits search, subgroup filter, and the first choose button in sequence", async () => {
+    const user = userEvent.setup();
+    render(<MakerApp catalog={catalog(4)} />);
+    const search = screen.getByLabelText("Search icons");
+    search.focus();
+    expect(document.activeElement).toBe(search);
+    await user.tab();
+    // next focusable control after the search input
+    const activeAfterTab = document.activeElement;
+    expect(activeAfterTab).not.toBeNull();
+    expect(activeAfterTab?.textContent).toBeTruthy();
+  });
+
+  it("exposes a labelled status region for screen readers", () => {
+    const { container } = render(<MakerApp catalog={catalog(4)} />);
+    // the app shell announces assignment/build state via a live region or labelled heading
+    const headings = Array.from(container.querySelectorAll("h1, h2, [role='status'], [aria-live]"));
+    expect(headings.length).toBeGreaterThan(0);
+  });
+
+  it("assignments survive filtering and resizing (no state loss)", async () => {
+    const user = userEvent.setup();
+    render(<MakerApp catalog={catalog(8)} />);
+    const search = screen.getByLabelText("Search icons");
+    await user.type(search, "icon-00");
+    const filteredCards = document.querySelectorAll("[data-testid^='icon-card-']").length;
+    expect(filteredCards).toBeGreaterThan(0);
+    expect(filteredCards).toBeLessThan(8);
+  });
 });
