@@ -108,12 +108,41 @@ export function updateCatalogIcon(
 export function deprecateCatalogIcon(
   catalog: IconCatalog,
   id: string,
+  options: { replacedBy?: string; migrationNote?: string } = {},
 ): CatalogMutationResult {
   const existing = catalog.icons.find((def) => def.id === id);
   if (!existing) {
     return { ok: false, errors: [buildError("NOT_FOUND", `icon "${id}" not found`)] };
   }
-  return { ok: true, catalog };
+  if (existing.deprecatedAt) {
+    return { ok: false, errors: [buildError("ALREADY_DEPRECATED", `icon "${id}" is already deprecated`)] };
+  }
+
+  const index = indexIconCatalog(catalog);
+  const replacedBy = options.replacedBy;
+  if (replacedBy !== undefined) {
+    if (replacedBy === id) {
+      return { ok: false, errors: [buildError("SELF_REPLACEMENT", `replacedBy cannot reference itself`)] };
+    }
+    if (!index.byId.has(replacedBy)) {
+      return { ok: false, errors: [buildError("REPLACEMENT_NOT_FOUND", `replacement "${replacedBy}" not found`)] };
+    }
+  }
+
+  const next: IconDefinition = {
+    ...existing,
+    deprecatedAt: new Date().toISOString(),
+    ...(replacedBy !== undefined ? { replacedBy } : {}),
+    ...(options.migrationNote !== undefined ? { migrationNote: options.migrationNote } : {}),
+    updatedAt: new Date().toISOString(),
+  };
+  return {
+    ok: true,
+    catalog: {
+      ...catalog,
+      icons: catalog.icons.map((def) => (def.id === id ? next : def)),
+    },
+  };
 }
 
 export function removeCatalogIcon(

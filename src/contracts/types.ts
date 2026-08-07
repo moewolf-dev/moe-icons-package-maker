@@ -23,6 +23,12 @@ export interface IconDefinition {
   readonly aliases: readonly string[];
   /** Reference icon used for preview when the user has not supplied an SVG. */
   readonly referenceIcon?: string;
+  /** ISO 8601 timestamp when the icon was deprecated (empty = active). */
+  readonly deprecatedAt?: string;
+  /** Canonical id that should replace this icon once deprecated. */
+  readonly replacedBy?: string;
+  /** Optional migration note shown to consumers. */
+  readonly migrationNote?: string;
   /** Timestamps in ISO 8601. */
   readonly addedAt: string;
   readonly updatedAt: string;

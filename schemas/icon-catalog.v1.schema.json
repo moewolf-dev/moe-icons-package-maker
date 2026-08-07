@@ -34,6 +34,9 @@
             "items": { "type": "string" }
           },
           "referenceIcon": { "type": "string" },
+          "deprecatedAt": { "type": "string", "format": "date-time" },
+          "replacedBy": { "type": "string", "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$" },
+          "migrationNote": { "type": "string", "minLength": 1 },
           "addedAt": { "type": "string", "format": "date-time" },
           "updatedAt": { "type": "string", "format": "date-time" }
         }

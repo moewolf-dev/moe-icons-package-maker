@@ -149,6 +149,19 @@ export function parseIconCatalog(input: unknown): Result<IconCatalog, ContractIs
       issues.push({ code: "INVALID_REFERENCE", severity: "error", message: `${path}.referenceIcon must be a string`, path });
     }
 
+    if (entry.deprecatedAt !== undefined && (typeof entry.deprecatedAt !== "string" || !isIsoDate(entry.deprecatedAt))) {
+      issues.push({ code: "INVALID_DEPRECATED_AT", severity: "error", message: `${path}.deprecatedAt must be ISO 8601`, path });
+    }
+    if (entry.replacedBy !== undefined && (typeof entry.replacedBy !== "string" || !RE_ID.test(entry.replacedBy))) {
+      issues.push({ code: "INVALID_REPLACED_BY", severity: "error", message: `${path}.replacedBy must be a lowercase kebab-case icon id`, path });
+    }
+    if (entry.replacedBy !== undefined && entry.replacedBy === id) {
+      issues.push({ code: "SELF_REPLACEMENT", severity: "error", message: `${path}: replacedBy cannot reference itself`, path });
+    }
+    if (entry.migrationNote !== undefined && (typeof entry.migrationNote !== "string" || entry.migrationNote.length === 0)) {
+      issues.push({ code: "INVALID_MIGRATION_NOTE", severity: "error", message: `${path}.migrationNote must be a non-empty string`, path });
+    }
+
     if (typeof entry.addedAt !== "string" || !isIsoDate(entry.addedAt)) {
       issues.push({ code: "INVALID_ADDED_AT", severity: "error", message: `${path}.addedAt must be ISO 8601`, path });
     }
@@ -165,11 +178,47 @@ export function parseIconCatalog(input: unknown): Result<IconCatalog, ContractIs
         ...(entry.referenceIcon !== undefined
           ? { referenceIcon: String(entry.referenceIcon) }
           : {}),
+        ...(entry.deprecatedAt !== undefined ? { deprecatedAt: String(entry.deprecatedAt) } : {}),
+        ...(entry.replacedBy !== undefined ? { replacedBy: String(entry.replacedBy) } : {}),
+        ...(entry.migrationNote !== undefined ? { migrationNote: String(entry.migrationNote) } : {}),
         addedAt: String(entry.addedAt),
         updatedAt: String(entry.updatedAt),
       });
     }
   });
+
+  if (issues.length === 0) {
+    // cross-icon integrity: replacedBy must exist, must not create a cycle
+    const byId = new Set(icons.map((icon) => icon.id));
+    for (const icon of icons) {
+      if (icon.replacedBy !== undefined && !byId.has(icon.replacedBy)) {
+        issues.push({
+          code: "REPLACED_BY_DANGLING",
+          severity: "error",
+          message: `icon "${icon.id}" replacedBy "${icon.replacedBy}" does not exist`,
+        });
+      }
+    }
+    // cycle detection: follow replacedBy chains; a cycle repeats a node
+    const byIdMap = new Map(icons.map((icon) => [icon.id, icon]));
+    for (const icon of icons) {
+      const seen = new Set<string>();
+      let current: IconDefinition | undefined = icon;
+      while (current?.replacedBy) {
+        if (seen.has(current.id)) {
+          issues.push({
+            code: "REPLACEMENT_CYCLE",
+            severity: "error",
+            message: `replacement chain from "${current.id}" forms a cycle`,
+          });
+          break;
+        }
+        seen.add(current.id);
+        current = byIdMap.get(current.replacedBy);
+        if (!current) break;
+      }
+    }
+  }
 
   if (issues.length > 0) {
     return { ok: false, errors: issues };
