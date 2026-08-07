@@ -1,11 +1,14 @@
 import { createServer } from "node:http";
 import { existsSync, readFileSync } from "node:fs";
 import { join, extname } from "node:path";
+import type { LocalApi } from "./local-api";
 
 /**
- * PMUI-05: developer local-server mode. One command serves the built maker UI
- * and (optionally) opens the default browser. Safe localhost default; explicit
- * configurable host/port. Health endpoint for tests. No native-app claim.
+ * PMUI-05/PMUI-18: developer local-server mode. One command serves the built
+ * maker UI and (optionally) opens the default browser. Safe localhost default;
+ * explicit configurable host/port. When a LocalApi is attached, `/api/*`
+ * routes (build/open) are delegated to it and the startup token is exposed
+ * same-origin via `/api/config`. No native-app claim.
  */
 
 const MIME: Record<string, string> = {
@@ -23,6 +26,7 @@ export interface ServerOptions {
   readonly port?: number;
   readonly distDir: string;
   readonly openBrowser?: (url: string) => Promise<void>;
+  readonly localApi?: LocalApi;
 }
 
 export interface RunningServer {
@@ -48,6 +52,19 @@ export function startMakerServer(options: ServerOptions): Promise<RunningServer>
     if (req.url === "/health" || req.url === "/healthz") {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ ok: true, service: "moe-icons-package-maker" }));
+      return;
+    }
+
+    // same-origin token handoff for the local write API
+    if (options.localApi && req.url === "/api/config") {
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ token: options.localApi.token }));
+      return;
+    }
+
+    // delegate all /api/* to the local write API when attached
+    if (options.localApi && (req.url ?? "").startsWith("/api/")) {
+      void options.localApi.handle(req, res);
       return;
     }
 

@@ -4,6 +4,7 @@ import { MakerApp } from "./maker-app";
 import { parseIconCatalog } from "../catalog/catalog";
 import { createReferencePreviewUrl, probeReferencePreview } from "./reference-preview";
 import type { ReferencePreviewState } from "./reference-preview";
+import { fetchLocalConfig, submitLocalBuild, openLocalBuildDir } from "./local-server-client";
 import type { IconCatalog } from "../contracts/types";
 import catalogJson from "../../data/icon-catalog.json";
 import "./styles.css";
@@ -18,6 +19,7 @@ function loadCatalog(): IconCatalog {
 
 function LocalMaker() {
   const [referenceAvailability, setReferenceAvailability] = useState<ReferencePreviewState>("loading");
+  const [localToken, setLocalToken] = useState<string | undefined>(undefined);
   const catalog = loadCatalog();
 
   useEffect(() => {
@@ -25,6 +27,14 @@ function LocalMaker() {
     const url = createReferencePreviewUrl("arrow-chevron-right");
     void probeReferencePreview(url, fetch, controller.signal).then(setReferenceAvailability);
     return () => controller.abort();
+  }, []);
+
+  // Only the local `npm run serve` mode exposes /api/config; the static build
+  // never enables the write API.
+  useEffect(() => {
+    void fetchLocalConfig().then((config) => {
+      if (config) setLocalToken(config.token);
+    });
   }, []);
 
   return (
@@ -38,6 +48,15 @@ function LocalMaker() {
           return undefined;
         }
       }}
+      {...(localToken
+        ? {
+            localServer: {
+              token: localToken,
+              submit: submitLocalBuild,
+              onOpenDir: (id: string) => openLocalBuildDir(localToken, id),
+            },
+          }
+        : {})}
     />
   );
 }

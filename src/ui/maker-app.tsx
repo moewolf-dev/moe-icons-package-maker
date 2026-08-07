@@ -17,6 +17,7 @@ import { ProjectDialog } from "./components/project-dialog";
 import { PreflightPanel } from "./components/preflight-panel";
 import type { PreflightReport } from "../build/preflight";
 import type { ReferencePreviewState } from "./reference-preview";
+import type { submitLocalBuild } from "./local-server-client";
 import {
   deriveIconSlotViewModels,
   filterByStatuses,
@@ -26,17 +27,21 @@ import {
 /**
  * MakerApp accepts injected catalog, adapters, and a project repository so the
  * website can import it directly. No iframe and no secret-bearing props.
+ * `localServer` enables the local-only write API (build to disk + open in
+ * Finder); it is never passed by the static website.
  */
 export function MakerApp({
   catalog,
   referencePreview,
   referenceAvailability = "available",
   projectRepository,
+  localServer,
 }: {
   catalog: IconCatalog;
   referencePreview?: (iconId: string) => string | undefined;
   referenceAvailability?: ReferencePreviewState;
   projectRepository?: ProjectRepository;
+  localServer?: { submit: typeof submitLocalBuild; token: string; onOpenDir: (id: string) => Promise<boolean> };
 }) {
   const session = useMakerSession(catalog);
   const importSession = useImportSession(session);
@@ -334,6 +339,49 @@ export function MakerApp({
             onDownloadManifest={downloadManifest}
             onDownloadReport={downloadReport}
           />
+          {localServer && session.buildStatus === "success" && session.buildResult && (
+            <div className="local-server-actions" data-testid="local-server-actions">
+              <button
+                type="button"
+                onClick={() => {
+                  void (async () => {
+                    const svgs: Record<string, string> = {};
+                    for (const slot of session.assignments) {
+                      if (!slot.assignedSource) continue;
+                      const content = session.buildResult?.result.files[`${slot.icon.subgroupId}/${slot.icon.id}.svg`];
+                      if (content) {
+                        svgs[slot.icon.id] = btoa(unescape(encodeURIComponent(content)));
+                      }
+                    }
+                    const request = {
+                      groupId: session.metadata.groupId || "untitled-group",
+                      displayName: session.metadata.displayName || session.metadata.groupId || "Untitled",
+                      styleId: session.metadata.styleId || "outline",
+                      author: { name: session.metadata.author || "local" },
+                      selectedIds: session.selectedIds,
+                      svgs,
+                    };
+                    await localServer.submit(localServer.token, request);
+                  })();
+                }}
+                data-testid="save-to-disk-button"
+              >
+                Save to disk (via local server)
+              </button>
+              <button
+                type="button"
+                className="secondary"
+                onClick={() => {
+                  void (async () => {
+                    await localServer.onOpenDir(session.metadata.groupId || "untitled-group");
+                  })();
+                }}
+                data-testid="open-in-finder-button"
+              >
+                Open in Finder
+              </button>
+            </div>
+          )}
         </>
       )}
     </div>
