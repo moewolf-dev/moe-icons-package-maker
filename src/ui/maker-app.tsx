@@ -14,6 +14,8 @@ import { BulkImportDropzone } from "./components/bulk-import-dropzone";
 import { ImportConflictPanel } from "./components/import-conflict-panel";
 import { ProjectSwitcher } from "./components/project-switcher";
 import { ProjectDialog } from "./components/project-dialog";
+import { PreflightPanel } from "./components/preflight-panel";
+import type { PreflightReport } from "../build/preflight";
 import type { ReferencePreviewState } from "./reference-preview";
 import {
   deriveIconSlotViewModels,
@@ -44,6 +46,8 @@ export function MakerApp({
   const [statuses, setStatuses] = useState<readonly IconSlotStatus[]>([]);
   const [activeTab, setActiveTab] = useState<"catalog" | "metadata" | "review">("catalog");
   const [focusIconId, setFocusIconId] = useState<string | undefined>(undefined);
+  const [preflightReport, setPreflightReport] = useState<PreflightReport | undefined>(undefined);
+  const [preflightWarningsConfirmed, setPreflightWarningsConfirmed] = useState(false);
 
   const viewModels = useMemo(
     () => deriveIconSlotViewModels(catalog, session.assignments, session.validationByIcon),
@@ -263,18 +267,41 @@ export function MakerApp({
       )}
 
       {activeTab === "review" && (
-        <BuildReviewPanel
-          counts={session.progress}
-          issues={reviewIssues}
-          buildStatus={session.buildStatus}
-          buildError={session.buildError}
-          buildResult={session.buildResult}
-          partialAcknowledged={session.partialAcknowledged}
-          onPartialAcknowledgedChange={(value) => session.setPartialAcknowledged(value)}
-          onBuild={(signal) => session.build(signal)}
-          onCancel={() => undefined}
-          onGoToIcon={goToIcon}
-        />
+        <>
+          <PreflightPanel
+            report={preflightReport}
+            warningConfirmed={preflightWarningsConfirmed}
+            onWarningConfirmedChange={setPreflightWarningsConfirmed}
+            onValidateOnly={() => {
+              const result = session.runPreflight();
+              if (result.ok) setPreflightReport(result.value);
+              else setPreflightReport(undefined);
+              setPreflightWarningsConfirmed(false);
+            }}
+            onDownloadJson={(report) => {
+              const blob = new Blob([report.manifestPreview], { type: "application/json" });
+              const url = typeof URL.createObjectURL === "function" ? URL.createObjectURL(blob) : "";
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = `${report.counts.filled}-icon-preflight-report.json`;
+              a.click();
+              if (url && typeof URL.revokeObjectURL === "function") URL.revokeObjectURL(url);
+            }}
+            onBuild={() => void session.build()}
+          />
+          <BuildReviewPanel
+            counts={session.progress}
+            issues={reviewIssues}
+            buildStatus={session.buildStatus}
+            buildError={session.buildError}
+            buildResult={session.buildResult}
+            partialAcknowledged={session.partialAcknowledged}
+            onPartialAcknowledgedChange={(value) => session.setPartialAcknowledged(value)}
+            onBuild={(signal) => session.build(signal)}
+            onCancel={() => undefined}
+            onGoToIcon={goToIcon}
+          />
+        </>
       )}
     </div>
   );

@@ -14,6 +14,7 @@ import {
 } from "../mapping/mapping";
 import { planBuild } from "../build/plan";
 import { materializeBuild } from "../build/materialize";
+import { runBuildPreflight, type PreflightResult } from "../build/preflight";
 import type { MakerProjectDraft } from "../contracts/project";
 import { MAKER_PROJECT_SCHEMA_VERSION } from "../contracts/project";
 
@@ -64,6 +65,8 @@ export interface MakerSession {
   setFallbackPolicy(value: "fallback" | "error"): void;
   build(signal?: AbortSignal): Promise<void>;
   reset(): void;
+  /** Run a build preflight report without materializing anything. */
+  runPreflight(): PreflightResult;
   /** Serialize current session state (minus blobs) for local draft storage. */
   toDraft(): MakerProjectDraft;
   /** Restore session state from a stored draft; blobs are re-read by the caller. */
@@ -345,6 +348,23 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
   );
   const validation = Array.from(validationByIcon.values()).flat();
 
+  const runPreflight = useCallback((): PreflightResult => {
+    const svgBySource = new Map<string, { content: string; checksum: string }>();
+    for (const slot of assignments) {
+      const svg = svgCache.current.get(slot.icon.id);
+      if (svg) {
+        svgBySource.set(svg.name, { content: svg.text, checksum: "x".repeat(64) });
+      }
+    }
+    return runBuildPreflight({
+      state: assignments,
+      metadata,
+      validationByIcon,
+      svgBySource,
+      fallbackPolicy,
+    });
+  }, [assignments, metadata, validationByIcon, fallbackPolicy]);
+
   const toDraft = useCallback((): MakerProjectDraft => {
     const now = new Date().toISOString();
     const mapping: Record<string, string> = {};
@@ -448,6 +468,7 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
     setFallbackPolicy,
     build,
     reset,
+    runPreflight,
     toDraft,
     restoreFromDraft,
   };

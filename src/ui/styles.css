@@ -85,6 +85,16 @@ input, select { width: 100%; border: 1px solid #d8cde4; background: white; color
 .field-issue, [role="alert"], .review-block { color: #b12d45; font-size: .75rem; }
 .manifest-note { grid-column: 1 / -1; margin: 0; padding: .6rem .8rem; border: 1px solid #e1d8ea; border-radius: 8px; background: #f8f5fb; color: #6f6679; font-size: .75rem; }
 .build-review-panel { padding: 1.25rem; border-radius: 14px; }
+.preflight-panel { margin: 0 0 1rem; padding: 1.25rem; border: 1px solid #e1d8ea; border-radius: 14px; background: rgba(255,255,255,.86); box-shadow: 0 14px 40px rgba(58,38,81,.07); }
+.preflight-actions { display: flex; gap: .6rem; margin-bottom: 1rem; }
+.preflight-empty { color: #796e83; font-size: .85rem; }
+.preflight-report dl { display: grid; grid-template-columns: repeat(6, 1fr); gap: .6rem; margin: 0 0 1rem; }
+.preflight-report dl div { padding: .6rem; border-radius: 8px; background: #f5f0f9; }
+.preflight-report dt { color: #796e83; font-size: .7rem; }
+.preflight-report dd { margin: .15rem 0 0; font-size: 1.2rem; font-weight: 800; }
+.preflight-errors { color: #b12d45; font-size: .78rem; margin: 0 0 .8rem; padding-left: 1.1rem; }
+.preflight-manifest-preview pre { max-height: 220px; overflow: auto; padding: .7rem; border: 1px solid #e1d8ea; border-radius: 8px; background: #faf8fc; font-size: .72rem; white-space: pre-wrap; }
+@media (max-width: 800px) { .preflight-report dl { grid-template-columns: repeat(3, 1fr); } }
 .build-review-panel dl { display: grid; grid-template-columns: repeat(5, 1fr); gap: .75rem; margin: 0 0 1rem; }
 .build-review-panel dl div { padding: .8rem; border-radius: 10px; background: #f5f0f9; }
 .build-review-panel dt { color: #796e83; font-size: .72rem; }
