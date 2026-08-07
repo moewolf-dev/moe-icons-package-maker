@@ -93,6 +93,36 @@ export function MakerApp({
     setActiveTab("catalog");
   };
 
+  const downloadBlob = (name: string, mime: string, bytes: Uint8Array | string) => {
+    const blob = new Blob([bytes as BlobPart], { type: mime });
+    const url = typeof URL.createObjectURL === "function" ? URL.createObjectURL(blob) : "";
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = name;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    if (url && typeof URL.revokeObjectURL === "function") {
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+  };
+
+  const downloadZip = () => {
+    if (!session.buildResult) return;
+    const safeGroup = session.metadata.groupId.replace(/[^a-z0-9-]/gi, "") || "icons";
+    downloadBlob(`${safeGroup}.zip`, "application/zip", session.buildResult.zipBytes);
+  };
+  const downloadManifest = () => {
+    if (!session.buildResult) return;
+    const content = session.buildResult.result.files["manifest.json"] ?? "";
+    downloadBlob("manifest.json", "application/json", content);
+  };
+  const downloadReport = () => {
+    if (!session.buildResult) return;
+    const content = session.buildResult.result.files["report.json"] ?? "";
+    downloadBlob("report.json", "application/json", content);
+  };
+
   return (
     <div className="maker-app" data-testid="maker-app">
       <UnsavedChangesGuard dirty={session.dirty} />
@@ -300,6 +330,9 @@ export function MakerApp({
             onBuild={(signal) => session.build(signal)}
             onCancel={() => undefined}
             onGoToIcon={goToIcon}
+            onDownloadZip={downloadZip}
+            onDownloadManifest={downloadManifest}
+            onDownloadReport={downloadReport}
           />
         </>
       )}

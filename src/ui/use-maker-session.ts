@@ -13,7 +13,8 @@ import {
   type MappingIssue,
 } from "../mapping/mapping";
 import { planBuild } from "../build/plan";
-import { materializeBuild } from "../build/materialize";
+import { materializeBuild, type BuildResult } from "../build/materialize";
+import { createDeterministicZip, type ZipEntry } from "../build/zip";
 import { runBuildPreflight, type PreflightResult } from "../build/preflight";
 import type { MakerProjectDraft } from "../contracts/project";
 import { MAKER_PROJECT_SCHEMA_VERSION } from "../contracts/project";
@@ -35,6 +36,14 @@ export interface GroupMetadata {
   licenseOther?: string;
 }
 
+/** Immutable build output ready for browser download. */
+export interface BuildArtifact {
+  readonly result: BuildResult;
+  readonly zipBytes: Uint8Array;
+  readonly zipChecksum: string;
+  readonly fileCount: number;
+}
+
 export interface MakerSession {
   readonly catalog: IconCatalog;
   readonly index: CatalogIndex;
@@ -50,7 +59,7 @@ export interface MakerSession {
   readonly dirty: boolean;
   readonly buildStatus: "idle" | "building" | "success" | "error" | "cancelled";
   readonly buildError: string | undefined;
-  readonly buildResult: { checksum: string; createdAt: string; files: string[] } | undefined;
+  readonly buildResult: BuildArtifact | undefined;
   readonly partialAcknowledged: boolean;
   readonly fallbackPolicy: "fallback" | "error";
 
@@ -100,6 +109,8 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
   const snapshot = useRef<string>("");
 
   const toggleSelect = useCallback((id: string) => {
+    setBuildResult(undefined);
+    setBuildStatus("idle");
     setSelectedIds((prev) => {
       const next = prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id];
       const state = createMappingState(catalog, next);
@@ -167,6 +178,8 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
         next.set(id, previewUrl);
         return next;
       });
+      setBuildResult(undefined);
+      setBuildStatus("idle");
       setDirty(true);
       return { ok: true, errors: [] };
     },
@@ -194,6 +207,8 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
       next.delete(id);
       return next;
     });
+    setBuildResult(undefined);
+    setBuildStatus("idle");
     setDirty(true);
   }, []);
 
@@ -216,6 +231,8 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
 
   const setMetadata = useCallback((patch: Partial<GroupMetadata>) => {
     setMetadataState((prev) => ({ ...prev, ...patch }));
+    setBuildResult(undefined);
+    setBuildStatus("idle");
     setDirty(true);
   }, []);
 
@@ -233,8 +250,10 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
       for (const slot of assignments) {
         const svg = svgCache.current.get(slot.icon.id);
         if (svg) {
-          sources[slot.icon.id] = svg.text;
-          sourceChecksums[slot.icon.id] = await sha256Hex(svg.text);
+          // keyed by the source file name (slot.assignedSource) so planBuild
+          // can resolve content by the same key it looks up.
+          sources[svg.name] = svg.text;
+          sourceChecksums[svg.name] = await sha256Hex(svg.text);
         }
       }
 
@@ -291,12 +310,26 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
           setBuildStatus("cancelled");
           return;
         }
-        const checksum = await sha256Hex(JSON.stringify(result.files));
-        setBuildResult({
-          checksum,
-          createdAt: plan.value.createdAt,
-          files: Object.keys(result.files),
-        });
+        // Build the deterministic ZIP from the materialized files; the checksum
+        // is over the ZIP bytes themselves, never over a filename JSON.
+        const zipEntries: ZipEntry[] = Object.entries(result.files).map(([path, content]) => ({
+          path,
+          content,
+        }));
+        const zip = createDeterministicZip(zipEntries);
+        if (!zip.ok) {
+          setBuildStatus("error");
+          setBuildError(zip.errors.join("; "));
+          return;
+        }
+        const zipChecksum = await sha256HexBytes(zip.value);
+        const artifact: BuildArtifact = {
+          result,
+          zipBytes: zip.value,
+          zipChecksum,
+          fileCount: Object.keys(result.files).length,
+        };
+        setBuildResult(artifact);
         snapshot.current = JSON.stringify({ selectedIds, assignments, metadata });
         setBuildStatus("success");
         setDirty(false);
@@ -476,6 +509,11 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
 
 async function sha256Hex(input: string): Promise<string> {
   const bytes = new TextEncoder().encode(input);
+  const digest = await crypto.subtle.digest("SHA-256", bytes as unknown as BufferSource);
+  return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+async function sha256HexBytes(bytes: Uint8Array): Promise<string> {
   const digest = await crypto.subtle.digest("SHA-256", bytes as unknown as BufferSource);
   return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("");
 }

@@ -100,6 +100,7 @@ input, select { width: 100%; border: 1px solid #d8cde4; background: white; color
 .build-review-panel dt { color: #796e83; font-size: .72rem; }
 .build-review-panel dd { margin: .2rem 0 0; font-size: 1.45rem; font-weight: 800; }
 .review-issues { max-height: 280px; overflow: auto; }
+.build-downloads { display: flex; gap: .6rem; margin-top: .8rem; flex-wrap: wrap; }
 
 @media (max-width: 800px) {
   .maker-app { width: min(100% - 1rem, 1180px); padding-top: 1rem; }

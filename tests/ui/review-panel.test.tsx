@@ -1,13 +1,32 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import * as React from "react";
 import { BuildReviewPanel } from "../../src/ui/components/build-review-panel";
+import type { BuildArtifact } from "../../src/ui/use-maker-session";
+
+function artifact(checksum: string): BuildArtifact {
+  return {
+    result: {
+      plan: {
+        groupId: "g",
+        displayName: "G",
+        styleId: "outline",
+        entries: [],
+        validation: { selected: 0, filled: 0, valid: 0, warnings: 0, errors: 0, missing: 0 },
+        createdAt: "2026-08-06",
+      },
+      files: { "manifest.json": "{}", "report.json": "{}" },
+      manifest: {} as never,
+    },
+    zipBytes: new Uint8Array([1, 2, 3]),
+    zipChecksum: checksum,
+    fileCount: 2,
+  };
+}
 
 const baseProps = {
-  buildResult: undefined as
-    | { checksum: string; createdAt: string; files: string[] }
-    | undefined,
+  buildResult: undefined as BuildArtifact | undefined,
   partialAcknowledged: false,
   onPartialAcknowledgedChange: vi.fn(),
   onCancel: vi.fn(),
@@ -136,27 +155,33 @@ describe("BuildReviewPanel", () => {
     expect(onCancel).toHaveBeenCalled();
   });
 
-  it("shows the final checksum on success", () => {
+  it("shows the final ZIP checksum and download buttons on success", () => {
+    const onDownloadZip = vi.fn();
     render(
       <BuildReviewPanel
         {...baseProps}
-        buildResult={{ checksum: "abc123".repeat(11), createdAt: "2026-08-06", files: ["a.ts"] }}
+        buildResult={artifact("abc123".repeat(11))}
         counts={{ selected: 1, filled: 1, missing: 0, warnings: 0, errors: 0 }}
         issues={[]}
         buildStatus="success"
         buildError={undefined}
         onBuild={async () => undefined}
+        onDownloadZip={onDownloadZip}
+        onDownloadManifest={vi.fn()}
+        onDownloadReport={vi.fn()}
       />,
     );
     expect(screen.getByTestId("build-result")).toBeTruthy();
     expect(screen.getByTestId("build-checksum")).toHaveTextContent("abc123");
+    fireEvent.click(screen.getByTestId("download-zip-button"));
+    expect(onDownloadZip).toHaveBeenCalled();
   });
 
   it("shows success and error status", () => {
     const { rerender } = render(
       <BuildReviewPanel
         {...baseProps}
-        buildResult={{ checksum: "c".repeat(64), createdAt: "2026-08-06", files: ["a.ts"] }}
+        buildResult={artifact("c".repeat(64))}
         counts={{ selected: 1, filled: 1, missing: 0, warnings: 0, errors: 0 }}
         issues={[]}
         buildStatus="success"

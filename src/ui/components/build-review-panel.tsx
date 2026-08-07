@@ -1,10 +1,12 @@
 import { useRef, useState } from "react";
+import type { BuildArtifact } from "../use-maker-session";
 
 /**
  * BuildReviewPanel derives filters/counters from getMappingProgress-style
  * counts, blocks on errors, requires explicit confirmation for warnings, and
  * calls build exactly once per confirmed build. Supports partial-group
- * acknowledgment, AbortSignal cancellation, and shows the final checksum.
+ * acknowledgment, AbortSignal cancellation, and shows the final checksum and
+ * download buttons from the immutable BuildArtifact.
  */
 export function BuildReviewPanel({
   counts,
@@ -17,17 +19,23 @@ export function BuildReviewPanel({
   onBuild,
   onCancel,
   onGoToIcon,
+  onDownloadZip,
+  onDownloadManifest,
+  onDownloadReport,
 }: {
   counts: { selected: number; filled: number; missing: number; warnings: number; errors: number };
   issues: readonly { code: string; severity: string; message: string; iconId?: string }[];
   buildStatus: "idle" | "building" | "success" | "error" | "cancelled";
   buildError: string | undefined;
-  buildResult: { checksum: string; createdAt: string; files: string[] } | undefined;
+  buildResult: BuildArtifact | undefined;
   partialAcknowledged: boolean;
   onPartialAcknowledgedChange: (value: boolean) => void;
   onBuild: (signal?: AbortSignal) => Promise<void>;
   onCancel: () => void;
   onGoToIcon?: (iconId: string) => void;
+  onDownloadZip?: () => void;
+  onDownloadManifest?: () => void;
+  onDownloadReport?: () => void;
 }) {
   const [warningsConfirmed, setWarningsConfirmed] = useState(false);
   const buildingRef = useRef(false);
@@ -130,9 +138,26 @@ export function BuildReviewPanel({
         <div className="build-result" data-testid="build-result">
           <p role="status">Build succeeded.</p>
           <p>
-            Checksum: <code data-testid="build-checksum">{buildResult.checksum}</code>
+            ZIP checksum: <code data-testid="build-checksum">{buildResult.zipChecksum}</code>
           </p>
-          <p>Files: {buildResult.files.length}</p>
+          <p>Files: {buildResult.fileCount}</p>
+          <div className="build-downloads">
+            {onDownloadZip && (
+              <button type="button" onClick={onDownloadZip} data-testid="download-zip-button">
+                Download ZIP
+              </button>
+            )}
+            {onDownloadManifest && (
+              <button type="button" className="secondary" onClick={onDownloadManifest} data-testid="download-manifest-button">
+                Download manifest
+              </button>
+            )}
+            {onDownloadReport && (
+              <button type="button" className="secondary" onClick={onDownloadReport} data-testid="download-report-button">
+                Download report
+              </button>
+            )}
+          </div>
         </div>
       )}
       {buildStatus === "error" && buildError && <p role="alert">{buildError}</p>}
