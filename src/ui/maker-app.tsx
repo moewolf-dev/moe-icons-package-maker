@@ -1,7 +1,10 @@
 import { useMemo, useState } from "react";
 import type { IconCatalog } from "../contracts/types";
+import type { ProjectRepository } from "../contracts/project";
+import { MemoryProjectRepository } from "../storage/memory-project-repository";
 import { useMakerSession } from "./use-maker-session";
 import { useImportSession } from "./use-import-session";
+import { useProjectController } from "./use-project-controller";
 import { CatalogFilters } from "./components/catalog-filters";
 import { VirtualizedIconGrid } from "./components/virtualized-icon-grid";
 import { GroupMetadataForm } from "./components/group-metadata-form";
@@ -9,6 +12,8 @@ import { BuildReviewPanel } from "./components/build-review-panel";
 import { UnsavedChangesGuard } from "./components/unsaved-changes-guard";
 import { BulkImportDropzone } from "./components/bulk-import-dropzone";
 import { ImportConflictPanel } from "./components/import-conflict-panel";
+import { ProjectSwitcher } from "./components/project-switcher";
+import { ProjectDialog } from "./components/project-dialog";
 import type { ReferencePreviewState } from "./reference-preview";
 import {
   deriveIconSlotViewModels,
@@ -17,20 +22,23 @@ import {
 } from "./icon-view-model";
 
 /**
- * MakerApp accepts injected catalog and adapters so the website can import it
- * directly. No iframe and no secret-bearing props.
+ * MakerApp accepts injected catalog, adapters, and a project repository so the
+ * website can import it directly. No iframe and no secret-bearing props.
  */
 export function MakerApp({
   catalog,
   referencePreview,
   referenceAvailability = "available",
+  projectRepository,
 }: {
   catalog: IconCatalog;
   referencePreview?: (iconId: string) => string | undefined;
   referenceAvailability?: ReferencePreviewState;
+  projectRepository?: ProjectRepository;
 }) {
   const session = useMakerSession(catalog);
   const importSession = useImportSession(session);
+  const projectController = useProjectController(projectRepository ?? new MemoryProjectRepository(), session);
   const [query, setQuery] = useState("");
   const [subgroup, setSubgroup] = useState<string | undefined>(undefined);
   const [statuses, setStatuses] = useState<readonly IconSlotStatus[]>([]);
@@ -104,6 +112,62 @@ export function MakerApp({
           ))}
         </nav>
       </header>
+
+      {projectController.saveError && (
+        <p className="project-save-error" role="alert" data-testid="project-save-error">
+          Save error: {projectController.saveError}
+        </p>
+      )}
+
+      <ProjectSwitcher
+        projects={projectController.projects}
+        currentProjectId={projectController.currentProjectId}
+        currentName={projectController.currentName}
+        dirty={projectController.dirty}
+        saving={projectController.saving}
+        onOpen={(id) => void projectController.openProject(id)}
+        onCreate={() => projectController.openDialog("create")}
+        onRename={(project) => projectController.openDialog("rename", project)}
+        onDuplicate={(project) => projectController.openDialog("duplicate", project)}
+        onDelete={(project) => projectController.openDialog("delete", project)}
+      />
+
+      {projectController.dialog !== "none" && (
+        <ProjectDialog
+          kind={projectController.dialog}
+          {...(projectController.dialogProject?.name ? { projectName: projectController.dialogProject.name } : {})}
+          onClose={() => projectController.closeDialog()}
+          onSubmit={(name) => {
+            switch (projectController.dialog) {
+              case "create":
+                void projectController.createProject(name);
+                break;
+              case "rename":
+                if (projectController.dialogProject) {
+                  void projectController.renameProject(projectController.dialogProject.id, name);
+                }
+                break;
+              case "duplicate":
+                if (projectController.dialogProject) {
+                  void projectController.duplicateProject(projectController.dialogProject.id, name);
+                }
+                break;
+              case "delete":
+                if (projectController.dialogProject) {
+                  void projectController.deleteProject(projectController.dialogProject.id);
+                }
+                break;
+              case "open":
+                if (projectController.dialogProject) {
+                  void projectController.openProject(projectController.dialogProject.id);
+                }
+                break;
+              default:
+                projectController.closeDialog();
+            }
+          }}
+        />
+      )}
 
       {referenceAvailability === "missing" && (
         <p className="reference-notice" role="status" data-testid="reference-missing-notice">

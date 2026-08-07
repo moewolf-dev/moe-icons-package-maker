@@ -45,6 +45,21 @@ nav[role="tablist"] button[aria-selected="true"] { background: #201a2b; color: w
 .import-apply-row { display: flex; gap: .75rem; align-items: center; margin: 0 0 1rem; padding: .7rem 1rem; border: 1px solid #e1d8ea; border-radius: 12px; background: #f4f0f8; }
 .import-apply-row span { flex: 1; }
 .import-error, .import-progress-text { color: #b12d45; font-size: .8rem; margin: 0 0 .75rem; }
+
+.project-switcher { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; margin-bottom: 1rem; padding: .8rem 1rem; border: 1px solid #e1d8ea; border-radius: 12px; background: rgba(255,255,255,.86); }
+.project-current { display: flex; gap: .5rem; align-items: center; }
+.project-label { color: #796e83; font-size: .72rem; text-transform: uppercase; font-weight: 800; letter-spacing: .08em; }
+.project-dirty { color: #b7791f; font-size: .75rem; }
+.project-saving { color: #7654aa; font-size: .75rem; }
+.project-actions { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+.project-actions-group { display: inline-flex; gap: .3rem; align-items: center; }
+.project-actions button[aria-current="true"] { outline: 2px solid #9e73db; }
+.project-save-error { padding: .6rem .9rem; border: 1px solid #e4b0b0; border-radius: 10px; background: #fdf0f0; color: #b12d45; font-size: .8rem; margin: 0 0 1rem; }
+.project-dialog-backdrop { position: fixed; inset: 0; display: grid; place-items: center; background: rgba(32,26,43,.45); z-index: 50; }
+.project-dialog { width: min(420px, calc(100% - 2rem)); padding: 1.25rem; border-radius: 14px; background: white; box-shadow: 0 24px 60px rgba(32,26,43,.3); display: grid; gap: .9rem; }
+.project-dialog h3 { margin: 0; text-transform: capitalize; }
+.project-dialog label { display: grid; gap: .35rem; font-size: .8rem; font-weight: 700; color: #55495f; }
+.dialog-actions { display: flex; gap: .6rem; justify-content: flex-end; }
 .progress-strip { display: flex; gap: 1.5rem; padding: .8rem 1rem; border-radius: 14px 14px 0 0; color: #70647d; }
 .progress-strip strong { color: #201a2b; }
 .catalog-filters { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; padding: 1rem; border-top: 0; }

@@ -14,6 +14,8 @@ import {
 } from "../mapping/mapping";
 import { planBuild } from "../build/plan";
 import { materializeBuild } from "../build/materialize";
+import type { MakerProjectDraft } from "../contracts/project";
+import { MAKER_PROJECT_SCHEMA_VERSION } from "../contracts/project";
 
 /**
  * useMakerSession is the sole owner of catalog, selected IDs, assignments,
@@ -61,6 +63,10 @@ export interface MakerSession {
   setFallbackPolicy(value: "fallback" | "error"): void;
   build(signal?: AbortSignal): Promise<void>;
   reset(): void;
+  /** Serialize current session state (minus blobs) for local draft storage. */
+  toDraft(): MakerProjectDraft;
+  /** Restore session state from a stored draft; blobs are re-read by the caller. */
+  restoreFromDraft(draft: MakerProjectDraft): void;
 }
 
 const EMPTY_METADATA: GroupMetadata = {
@@ -338,6 +344,82 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
   );
   const validation = Array.from(validationByIcon.values()).flat();
 
+  const toDraft = useCallback((): MakerProjectDraft => {
+    const now = new Date().toISOString();
+    const mapping: Record<string, string> = {};
+    const refs: { blobId: string; fileName: string; mimeType: string; size: number; sha256: string }[] = [];
+    for (const slot of assignments) {
+      const svg = svgCache.current.get(slot.icon.id);
+      if (svg) {
+        const blobId = `blob-${slot.icon.id}`;
+        mapping[slot.icon.id] = blobId;
+        refs.push({
+          blobId,
+          fileName: svg.name,
+          mimeType: "image/svg+xml",
+          size: svg.byteLength,
+          sha256: "x".repeat(64),
+        });
+      }
+    }
+    return {
+      metadata: {
+        id: "",
+        name: "",
+        schemaVersion: MAKER_PROJECT_SCHEMA_VERSION,
+        catalogSchemaVersion: 1,
+        createdAt: now,
+        updatedAt: now,
+      },
+      selectedIds,
+      groupMetadata: {
+        groupId: metadata.groupId,
+        displayName: metadata.displayName,
+        styleId: metadata.styleId,
+        author: metadata.author,
+        email: metadata.email,
+        source: metadata.source,
+        license: metadata.license,
+      },
+      fallbackPolicy,
+      mapping,
+      blobRefs: refs,
+    };
+  }, [assignments, selectedIds, metadata, fallbackPolicy]);
+
+  const restoreFromDraft = useCallback((draft: MakerProjectDraft): void => {
+    setSelectedIds([...draft.selectedIds]);
+    const created = createMappingState(catalog, draft.selectedIds);
+    if (created.ok) {
+      // mark assigned sources by mapping keys
+      const next = created.value.map((slot) => {
+        const blobId = draft.mapping[slot.icon.id];
+        return blobId ? { ...slot, assignedSource: blobId } : slot;
+      });
+      setAssignments(next);
+    } else {
+      setAssignments([]);
+    }
+    setMetadataState({
+      groupId: draft.groupMetadata.groupId,
+      displayName: draft.groupMetadata.displayName,
+      styleId: draft.groupMetadata.styleId,
+      author: draft.groupMetadata.author,
+      email: draft.groupMetadata.email,
+      source: draft.groupMetadata.source,
+      license: draft.groupMetadata.license,
+    });
+    setFallbackPolicyState(draft.fallbackPolicy);
+    setPreviewUrls(new Map());
+    setValidationByIcon(new Map());
+    setBuildStatus("idle");
+    setBuildError(undefined);
+    setBuildResult(undefined);
+    setPartialAcknowledgedState(false);
+    setDirty(false);
+    svgCache.current.clear();
+  }, [catalog]);
+
   return {
     catalog,
     index,
@@ -365,6 +447,8 @@ export function useMakerSession(catalog: IconCatalog): MakerSession {
     setFallbackPolicy,
     build,
     reset,
+    toDraft,
+    restoreFromDraft,
   };
 }
 
