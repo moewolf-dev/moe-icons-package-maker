@@ -26,6 +26,8 @@ nav[role="tablist"] button { background: transparent; color: #71657c; text-trans
 nav[role="tablist"] button[aria-selected="true"] { background: #201a2b; color: white; }
 
 .progress-strip, .catalog-filters, .group-metadata-form, .build-review-panel { border: 1px solid #e1d8ea; background: rgba(255,255,255,.86); box-shadow: 0 14px 40px rgba(58,38,81,.07); }
+.reference-notice { margin: 0 0 1rem; padding: .7rem 1rem; border: 1px solid #e4c78a; border-radius: 10px; background: #fdf6e7; color: #7a5b1e; font-size: .85rem; }
+.preview-fallback { font-size: .72rem; color: #a296ad; text-align: center; padding: 0 .35rem; line-height: 1.25; }
 .progress-strip { display: flex; gap: 1.5rem; padding: .8rem 1rem; border-radius: 14px 14px 0 0; color: #70647d; }
 .progress-strip strong { color: #201a2b; }
 .catalog-filters { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; padding: 1rem; border-top: 0; }

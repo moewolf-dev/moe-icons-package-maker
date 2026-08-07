@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MakerApp } from "../../src/ui/maker-app";
 import { VirtualizedIconGrid } from "../../src/ui/components/virtualized-icon-grid";
@@ -164,5 +164,35 @@ describe("accessibility and responsiveness", () => {
     const filteredCards = document.querySelectorAll("[data-testid^='icon-card-']").length;
     expect(filteredCards).toBeGreaterThan(0);
     expect(filteredCards).toBeLessThan(8);
+  });
+
+  it("shows a non-blocking notice when the reference source is missing", () => {
+    render(<MakerApp catalog={catalog(3)} referenceAvailability="missing" />);
+    const notice = screen.getByTestId("reference-missing-notice");
+    expect(notice.textContent).toContain("Official reference source is unavailable");
+    // upload/validation controls are still present and operable
+    expect(screen.getByLabelText("Search icons")).toBeTruthy();
+    expect(document.querySelectorAll("[data-testid^='icon-card-']").length).toBeGreaterThan(0);
+  });
+
+  it("shows no missing notice when the reference source is available", () => {
+    render(<MakerApp catalog={catalog(3)} referenceAvailability="available" />);
+    expect(screen.queryByTestId("reference-missing-notice")).toBeNull();
+  });
+
+  it("a reference image that fails to load shows a text placeholder, not a broken image", () => {
+    render(
+      <VirtualizedIconGrid
+        icons={catalog(2).icons}
+        assignments={new Map()}
+        referencePreview={() => "missing.svg"}
+        onChoose={async () => ({ ok: true, errors: [] })}
+        onRemove={() => undefined}
+      />,
+    );
+    const img = document.querySelector("[data-testid^='reference-icon-000'] img") as HTMLImageElement;
+    fireEvent.error(img);
+    const fallback = document.querySelector("[data-testid='reference-fallback-icon-000']");
+    expect(fallback?.textContent).toContain("Reference unavailable");
   });
 });

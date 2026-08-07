@@ -4,7 +4,8 @@ import type { IconDefinition } from "../../contracts/types";
 /**
  * IconAssignmentCard receives icon, reference preview, assignment, and
  * callbacks onChoose/onDrop/onRemove. A failed replacement keeps the old
- * preview (the parent retains the prior assignment).
+ * preview (the parent retains the prior assignment). A reference image that
+ * fails to load degrades to a text placeholder, never a broken image.
  */
 export function IconAssignmentCard({
   icon,
@@ -23,6 +24,7 @@ export function IconAssignmentCard({
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | undefined>(undefined);
   const [dropActive, setDropActive] = useState(false);
+  const [referenceFailed, setReferenceFailed] = useState(false);
 
   const source = assignment?.source;
   const filled = source !== undefined;
@@ -66,7 +68,13 @@ export function IconAssignmentCard({
       <div className="icon-card-previews">
         <span className="preview-tile" data-testid={`reference-${icon.id}`} aria-label={`Reference preview for ${icon.id}`}>
           <small>Official</small>
-          {referencePreview ? <img src={referencePreview} alt="" /> : <span aria-hidden="true">—</span>}
+          {referencePreview && !referenceFailed ? (
+            <img src={referencePreview} alt="" onError={() => setReferenceFailed(true)} />
+          ) : (
+            <span className="preview-fallback" data-testid={`reference-fallback-${icon.id}`} aria-hidden="true">
+              Reference unavailable
+            </span>
+          )}
         </span>
         <span className={`preview-tile ${filled ? "has-image" : ""}`}>
           <small>Your SVG</small>

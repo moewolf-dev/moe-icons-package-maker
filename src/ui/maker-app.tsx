@@ -6,6 +6,7 @@ import { VirtualizedIconGrid } from "./components/virtualized-icon-grid";
 import { GroupMetadataForm } from "./components/group-metadata-form";
 import { BuildReviewPanel } from "./components/build-review-panel";
 import { UnsavedChangesGuard } from "./components/unsaved-changes-guard";
+import type { ReferencePreviewState } from "./reference-preview";
 
 /**
  * MakerApp accepts injected catalog and adapters so the website can import it
@@ -14,9 +15,11 @@ import { UnsavedChangesGuard } from "./components/unsaved-changes-guard";
 export function MakerApp({
   catalog,
   referencePreview,
+  referenceAvailability = "available",
 }: {
   catalog: IconCatalog;
   referencePreview?: (iconId: string) => string | undefined;
+  referenceAvailability?: ReferencePreviewState;
 }) {
   const session = useMakerSession(catalog);
   const [query, setQuery] = useState("");
@@ -78,6 +81,12 @@ export function MakerApp({
           ))}
         </nav>
       </header>
+
+      {referenceAvailability === "missing" && (
+        <p className="reference-notice" role="status" data-testid="reference-missing-notice">
+          Official reference source is unavailable; uploads and validation still work.
+        </p>
+      )}
 
       {activeTab === "catalog" && (
         <>
