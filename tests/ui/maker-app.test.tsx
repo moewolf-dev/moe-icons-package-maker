@@ -44,7 +44,7 @@ describe("MakerApp", () => {
   it("lets an unselected catalog slot accept and preview a valid SVG", async () => {
     const user = userEvent.setup();
     render(<MakerApp catalog={catalog(2)} />);
-    const hiddenInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+    const hiddenInput = document.querySelector('[data-testid^="icon-card-icon-000"] input[type="file"]') as HTMLInputElement;
     const file = new File(
       ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 2h20v20H2z"/></svg>'],
       "custom.svg",

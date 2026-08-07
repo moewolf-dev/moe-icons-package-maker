@@ -1,11 +1,14 @@
 import { useMemo, useState } from "react";
 import type { IconCatalog } from "../contracts/types";
 import { useMakerSession } from "./use-maker-session";
+import { useImportSession } from "./use-import-session";
 import { CatalogFilters } from "./components/catalog-filters";
 import { VirtualizedIconGrid } from "./components/virtualized-icon-grid";
 import { GroupMetadataForm } from "./components/group-metadata-form";
 import { BuildReviewPanel } from "./components/build-review-panel";
 import { UnsavedChangesGuard } from "./components/unsaved-changes-guard";
+import { BulkImportDropzone } from "./components/bulk-import-dropzone";
+import { ImportConflictPanel } from "./components/import-conflict-panel";
 import type { ReferencePreviewState } from "./reference-preview";
 import {
   deriveIconSlotViewModels,
@@ -27,6 +30,7 @@ export function MakerApp({
   referenceAvailability?: ReferencePreviewState;
 }) {
   const session = useMakerSession(catalog);
+  const importSession = useImportSession(session);
   const [query, setQuery] = useState("");
   const [subgroup, setSubgroup] = useState<string | undefined>(undefined);
   const [statuses, setStatuses] = useState<readonly IconSlotStatus[]>([]);
@@ -114,6 +118,53 @@ export function MakerApp({
             <span><strong>{session.progress.selected}</strong> selected</span>
             <span><strong>{session.progress.filled}</strong> filled</span>
           </div>
+          <BulkImportDropzone
+            onFiles={(files) => void importSession.scanFiles(files)}
+            busy={importSession.state === "scanning" || importSession.state === "applying"}
+          />
+          {importSession.state === "conflicts" && (
+            <ImportConflictPanel
+              candidates={importSession.candidates}
+              conflicts={importSession.conflicts}
+              decisions={importSession.decisions}
+              onResolve={(candidateId, iconId) => importSession.resolveConflict(candidateId, iconId)}
+            />
+          )}
+          {importSession.error && (
+            <p className="import-error" role="alert" data-testid="import-error">
+              {importSession.error}
+            </p>
+          )}
+          {(importSession.state === "ready" || importSession.state === "conflicts") && (
+            <div className="import-apply-row">
+              <span data-testid="import-total">
+                {importSession.matches.length} matched of {importSession.totalCount} files
+              </span>
+              <button
+                type="button"
+                onClick={() => void importSession.apply()}
+                data-testid="import-apply-button"
+              >
+                Apply matched icons
+              </button>
+              <button type="button" className="secondary" onClick={() => importSession.cancel()} data-testid="import-cancel-button">
+                Cancel
+              </button>
+            </div>
+          )}
+          {importSession.state === "applying" && (
+            <p role="status" data-testid="import-progress">
+              Applied {importSession.appliedCount} of {importSession.matches.length}
+            </p>
+          )}
+          {importSession.state === "success" && (
+            <p role="status" data-testid="import-success">
+              Import complete.
+            </p>
+          )}
+          {importSession.state === "cancelled" && (
+            <p role="status" data-testid="import-cancelled">Import cancelled.</p>
+          )}
           <CatalogFilters
             catalog={catalog}
             onSearch={setQuery}

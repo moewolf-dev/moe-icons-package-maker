@@ -23,7 +23,7 @@ describe("PMUI-09 icon status, navigation, and slot controls", () => {
   it("remove slot removes assignment and selection, counts go to zero", async () => {
     const user = userEvent.setup();
     render(<MakerApp catalog={catalog(3)} />);
-    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+    const input = document.querySelector('[data-testid^="icon-card-icon-000"] input[type="file"]') as HTMLInputElement;
     await user.upload(input, new File([VALID_SVG], "custom.svg", { type: "image/svg+xml" }));
     await screen.findByText("custom.svg");
 
@@ -40,7 +40,7 @@ describe("PMUI-09 icon status, navigation, and slot controls", () => {
   it("remove assignment keeps the slot selected (missing); remove slot removes it", async () => {
     const user = userEvent.setup();
     render(<MakerApp catalog={catalog(3)} />);
-    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+    const input = document.querySelector('[data-testid^="icon-card-icon-000"] input[type="file"]') as HTMLInputElement;
     await user.upload(input, new File([VALID_SVG], "custom.svg", { type: "image/svg+xml" }));
     await screen.findByTestId("status-icon-000");
     // wait for the async assignment to land
@@ -55,7 +55,7 @@ describe("PMUI-09 icon status, navigation, and slot controls", () => {
   it("status filter combines AND with search", async () => {
     const user = userEvent.setup();
     render(<MakerApp catalog={catalog(6)} />);
-    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+    const input = document.querySelector('[data-testid^="icon-card-icon-000"] input[type="file"]') as HTMLInputElement;
     await user.upload(input, new File([VALID_SVG], "custom.svg", { type: "image/svg+xml" }));
 
     // filter to "valid" only — the one filled icon (icon-000) stays
@@ -100,7 +100,7 @@ describe("PMUI-09 icon status, navigation, and slot controls", () => {
   it("go-to-icon from review returns to catalog", async () => {
     const user = userEvent.setup();
     render(<MakerApp catalog={catalog(3)} />);
-    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+    const input = document.querySelector('[data-testid^="icon-card-icon-000"] input[type="file"]') as HTMLInputElement;
     await user.upload(input, new File([EMPTY_SVG], "bad.svg", { type: "image/svg+xml" }));
     await new Promise((r) => setTimeout(r, 50));
 

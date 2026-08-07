@@ -28,6 +28,23 @@ nav[role="tablist"] button[aria-selected="true"] { background: #201a2b; color: w
 .progress-strip, .catalog-filters, .group-metadata-form, .build-review-panel { border: 1px solid #e1d8ea; background: rgba(255,255,255,.86); box-shadow: 0 14px 40px rgba(58,38,81,.07); }
 .reference-notice { margin: 0 0 1rem; padding: .7rem 1rem; border: 1px solid #e4c78a; border-radius: 10px; background: #fdf6e7; color: #7a5b1e; font-size: .85rem; }
 .preview-fallback { font-size: .72rem; color: #a296ad; text-align: center; padding: 0 .35rem; line-height: 1.25; }
+
+.bulk-import-dropzone { margin: 0 0 1rem; padding: 1.25rem; border: 2px dashed #c9b8dd; border-radius: 14px; background: rgba(255,255,255,.7); text-align: center; }
+.bulk-import-dropzone.drop-active { border-color: #9e73db; background: #f3ecfb; }
+.bulk-import-dropzone.busy { opacity: .6; pointer-events: none; }
+.bulk-import-title { margin: 0 0 .35rem; font-weight: 800; }
+.bulk-import-hint { margin: 0 0 .9rem; color: #6f6679; font-size: .8rem; }
+.import-conflict-panel { margin: 0 0 1rem; padding: 1rem; border: 1px solid #e1d8ea; border-radius: 14px; background: #fff7f7; }
+.import-conflict-panel h3 { margin: 0 0 .6rem; font-size: 1rem; }
+.import-conflicts { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+.import-conflicts li { display: grid; gap: .3rem; padding: .6rem .75rem; border: 1px solid #eedada; border-radius: 10px; background: white; font-size: .8rem; }
+.conflict-file { font-weight: 700; }
+.conflict-decision { display: flex; gap: .5rem; align-items: end; }
+.conflict-decision label { display: grid; gap: .2rem; font-size: .75rem; }
+.conflict-decision input { width: 18rem; }
+.import-apply-row { display: flex; gap: .75rem; align-items: center; margin: 0 0 1rem; padding: .7rem 1rem; border: 1px solid #e1d8ea; border-radius: 12px; background: #f4f0f8; }
+.import-apply-row span { flex: 1; }
+.import-error, .import-progress-text { color: #b12d45; font-size: .8rem; margin: 0 0 .75rem; }
 .progress-strip { display: flex; gap: 1.5rem; padding: .8rem 1rem; border-radius: 14px 14px 0 0; color: #70647d; }
 .progress-strip strong { color: #201a2b; }
 .catalog-filters { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; padding: 1rem; border-top: 0; }
