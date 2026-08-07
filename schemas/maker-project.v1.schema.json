@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.moeicons.dev/maker-project/v1.schema.json",
+  "title": "MakerProjectDraft",
+  "description": "Versioned local draft of an icon-group build. Mapping stores blob keys, never object URLs or raw SVG text.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["metadata", "selectedIds", "groupMetadata", "fallbackPolicy", "mapping", "blobRefs"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "schemaVersion", "catalogSchemaVersion", "createdAt", "updatedAt"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 64, "pattern": "^[a-zA-Z0-9._-]+$" },
+        "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "schemaVersion": { "const": 1 },
+        "catalogSchemaVersion": { "const": 1 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "selectedIds": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "groupMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["groupId", "displayName", "styleId", "author", "email", "source", "license"],
+      "properties": {
+        "groupId": { "type": "string" },
+        "displayName": { "type": "string" },
+        "styleId": { "type": "string" },
+        "author": { "type": "string" },
+        "email": { "type": "string" },
+        "source": { "type": "string" },
+        "license": { "type": "string" }
+      }
+    },
+    "fallbackPolicy": { "enum": ["fallback", "error"] },
+    "mapping": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "blobRefs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["blobId", "fileName", "mimeType", "size", "sha256"],
+        "properties": {
+          "blobId": { "type": "string" },
+          "fileName": { "type": "string" },
+          "mimeType": { "type": "string" },
+          "size": { "type": "integer", "minimum": 0 },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        }
+      }
+    }
+  }
+}
